@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Что ответим Фёдорову?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+:root{
+  --gold:#C9A84C;--gold-l:#E8C97A;--gold-d:#8B6914;
+  --navy:#0D1732;--navy-mid:#0A1228;--navy-card:#111E3A;
+  --text-dark:#1A1A2E;--text-mid:#3A3A5C;--text-muted:#888;
+  --border:#E0D8C8;--bg-light:#FAFAF8;--bg-card:#FFFFFF;
+}
+body{font-family:'Raleway',sans-serif;font-size:15px;line-height:1.7;background:#fff;color:var(--text-dark);overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Playfair Display',serif}
+
+/* ===== HERO ===== */
+#hero{
+  position:relative;overflow:hidden;
+  background:var(--navy-mid);
+  min-height:60vh;
+}
+.hero-poster{
+  width:100%;height:60vh;
+  object-fit:cover;object-position:center top;
+  display:block;
+}
+.hero-poster-v{display:none}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(8,14,30,0.25) 0%,rgba(8,14,30,0.5) 60%,rgba(8,14,30,0.85) 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:0 1.5rem 2rem;text-align:center;
+}
+.hero-eyebrow{font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(201,168,76,0.8);margin-bottom:0.5rem}
+.hero-title{
+  font-size:clamp(3rem,8vw,6.5rem);font-weight:900;line-height:1.0;
+  background:linear-gradient(135deg,var(--gold-l) 0%,var(--gold) 50%,#A07820 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  margin-bottom:1rem;text-shadow:none;
+}
+.hero-sub{font-size:clamp(1rem,2.5vw,1.25rem);color:#E8DFC8;font-weight:300;margin-bottom:0.5rem;max-width:600px}
+.hero-desc{font-size:0.95rem;color:rgba(232,223,200,0.75);margin-bottom:2rem}
+.hero-meta{display:flex;gap:1.5rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap}
+.hero-meta span{font-size:0.75rem;color:rgba(232,223,200,0.6);display:flex;align-items:center;gap:0.35rem}
+.hero-meta span::before{content:'◇';color:var(--gold);font-size:0.5rem}
+.btn-cta{
+  display:inline-flex;align-items:center;gap:0.6rem;
+  background:linear-gradient(135deg,var(--gold) 0%,#A07820 100%);
+  color:var(--navy-mid);font-family:'Raleway',sans-serif;
+  font-weight:700;font-size:1rem;letter-spacing:0.05em;
+  padding:0.9rem 2.5rem;border:none;cursor:pointer;
+  border-radius:3px;text-decoration:none;transition:all 0.3s;
+}
+.btn-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,168,76,0.45)}
+.btn-cta::after{content:'→';font-size:1rem;transition:transform 0.3s}
+.btn-cta:hover::after{transform:translateX(4px)}
+
+/* ===== LIGHT SECTIONS ===== */
+.light-section{background:var(--bg-card);color:var(--text-dark)}
+
+/* ===== ABOUT ===== */
+#about{
+  background:#fff;
+  border-bottom:1px solid var(--border);
+}
+.about-inner{
+  max-width:960px;margin:0 auto;
+  display:grid;grid-template-columns:140px 1fr auto;gap:0;
+  align-items:stretch;
+}
+.about-portrait-col{
+  padding:2rem 1.5rem;
+  display:flex;flex-direction:column;align-items:center;gap:1rem;
+  border-right:1px solid var(--border);
+}
+.portrait-circle{
+  width:96px;height:96px;border-radius:50%;
+  overflow:hidden;
+  border:2px solid var(--gold);
+  box-shadow:0 0 0 4px rgba(201,168,76,0.12), 0 0 20px rgba(201,168,76,0.15);
+  flex-shrink:0;
+}
+.portrait-circle img{width:100%;height:100%;object-fit:cover;object-position:top}
+.portrait-label{font-size:0.72rem;color:var(--text-muted);text-align:center;line-height:1.5}
+.portrait-label small{font-size:0.65rem;color:var(--gold);letter-spacing:0.05em}
+.about-content{padding:2rem 2.5rem}
+.about-content h2{font-size:1.4rem;color:var(--text-dark);margin-bottom:0.75rem}
+.about-content p{font-size:0.9rem;color:var(--text-mid);line-height:1.75;margin-bottom:0.5rem}
+.link-gold{color:var(--gold);text-decoration:none;font-weight:600;font-size:0.85rem}
+.link-gold:hover{text-decoration:underline}
+.about-deco{
+  padding:2rem 1.5rem;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;
+  border-left:1px solid var(--border);
+  color:rgba(201,168,76,0.35);font-size:1.5rem;
+}
+
+/* Divider ornament */
+.section-ornament{
+  background:#f7f5f0;
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  padding:1.5rem 2rem;
+  display:flex;align-items:center;
+}
+.section-ornament-inner{max-width:960px;margin:0 auto;width:100%;display:grid;grid-template-columns:140px 1fr auto;gap:0;align-items:center}
+.orn-icon{
+  width:70px;height:70px;border-radius:50%;
+  border:1px solid rgba(201,168,76,0.4);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.6rem;color:var(--gold);background:#fff;
+  margin:0 auto;
+}
+.orn-content{padding:0 2rem}
+.orn-content h2{font-size:1.3rem;color:var(--text-dark);margin-bottom:0.5rem}
+.orn-content p{font-size:0.88rem;color:var(--text-mid);line-height:1.7}
+.orn-deco{padding:0 1.5rem;color:rgba(201,168,76,0.3);font-size:1.2rem;text-align:center}
+
+/* ===== REGISTRATION ===== */
+#registration{
+  background:#fff;
+  padding:2rem;
+  border-bottom:1px solid var(--border);
+}
+.reg-inner{max-width:960px;margin:0 auto}
+.reg-header{
+  display:flex;justify-content:space-between;align-items:center;
+  margin-bottom:1.25rem;
+}
+.reg-title{font-size:1.2rem;color:var(--text-dark);font-family:'Raleway',sans-serif;font-weight:600}
+.anon-note{font-size:0.78rem;color:var(--text-muted);display:flex;align-items:center;gap:0.4rem}
+.anon-note::before{content:'◎';color:var(--text-muted);font-size:0.65rem}
+.form-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1rem}
+.form-group{display:flex;flex-direction:column;gap:0.3rem}
+.form-group label{font-size:0.75rem;color:var(--text-muted);font-weight:500}
+.form-group input,.form-group select{
+  border:1px solid #D8D4CC;border-radius:3px;
+  padding:0.6rem 0.8rem;font-family:'Raleway',sans-serif;
+  font-size:0.85rem;color:var(--text-dark);background:#fff;
+  outline:none;transition:border-color 0.25s;
+}
+.form-group input::placeholder{color:#BBB;font-size:0.82rem}
+.form-group input:focus,.form-group select:focus{border-color:var(--gold)}
+.form-group select option{background:#fff}
+.checkbox-row{display:flex;align-items:center;gap:0.6rem;margin-bottom:1.25rem;cursor:pointer}
+.checkbox-row input{width:15px;height:15px;cursor:pointer;accent-color:var(--gold)}
+.checkbox-row span{font-size:0.82rem;color:var(--text-muted)}
+.checkbox-row a{color:var(--gold);text-decoration:none}
+.form-err{color:#D64545;font-size:0.78rem;margin-top:0.2rem}
+.hidden{display:none!important}
+.btn-start{
+  background:linear-gradient(135deg,var(--gold) 0%,#A07820 100%);
+  color:var(--navy-mid);font-family:'Raleway',sans-serif;
+  font-weight:700;font-size:0.9rem;letter-spacing:0.05em;
+  padding:0.75rem 2rem;border:none;cursor:pointer;border-radius:3px;
+  transition:all 0.3s;
+}
+.btn-start:hover{transform:translateY(-1px);box-shadow:0 5px 18px rgba(201,168,76,0.4)}
+
+/* ===== QUIZ ===== */
+#quiz{
+  background:#fff;
+  padding:2rem;
+  border-bottom:1px solid var(--border);
+}
+.quiz-inner{max-width:900px;margin:0 auto}
+.quiz-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem}
+.q-label{font-size:0.8rem;color:var(--text-muted);font-weight:500}
+.q-pct{font-size:0.8rem;color:var(--text-dark);font-weight:700}
+.prog-track{
+  width:100%;height:6px;background:#EEEAE0;border-radius:3px;
+  margin-bottom:2.5rem;overflow:hidden;
+}
+.prog-fill{
+  height:100%;border-radius:3px;
+  background:linear-gradient(90deg,var(--gold-d),var(--gold));
+  transition:width 0.5s ease;
+}
+.q-block{animation:fadeUp 0.35s ease}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.q-text{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.1rem,2.5vw,1.4rem);
+  font-weight:700;color:var(--text-dark);
+  text-align:center;margin-bottom:2rem;line-height:1.4;
+}
+.options{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1rem}
+.opt-lbl{
+  display:flex;align-items:flex-start;gap:0.9rem;
+  padding:0.85rem 1.1rem;
+  border:1px solid #DDD9CE;border-radius:3px;
+  cursor:pointer;transition:all 0.2s;background:#FAFAF8;
+}
+.opt-lbl:hover{border-color:#C9A84C;background:#FDF9F2}
+.opt-lbl.sel{border-color:var(--gold);background:#FDF5E4}
+.opt-lbl input{display:none}
+.opt-radio{
+  width:18px;height:18px;border-radius:50%;
+  border:1.5px solid #CCC;flex-shrink:0;margin-top:2px;
+  transition:all 0.2s;position:relative;
+}
+.opt-lbl.sel .opt-radio{border-color:var(--gold);background:var(--gold)}
+.opt-lbl.sel .opt-radio::after{
+  content:'';position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:7px;height:7px;border-radius:50%;background:#fff;
+}
+.opt-txt{font-size:0.88rem;color:var(--text-mid);line-height:1.6}
+.hint{font-size:0.78rem;color:var(--text-muted);font-style:italic;margin-bottom:2rem;text-align:center}
+.quiz-nav{display:flex;justify-content:space-between;align-items:center}
+.btn-back{
+  display:flex;align-items:center;gap:0.5rem;
+  padding:0.65rem 1.4rem;background:#fff;
+  border:1px solid #D0CCBF;color:var(--text-muted);
+  font-family:'Raleway',sans-serif;font-weight:500;font-size:0.85rem;
+  cursor:pointer;border-radius:3px;transition:all 0.25s;
+}
+.btn-back:hover{border-color:#999;color:var(--text-dark)}
+.btn-next{
+  padding:0.65rem 2rem;
+  background:linear-gradient(135deg,var(--gold) 0%,#A07820 100%);
+  border:none;color:var(--navy-mid);
+  font-family:'Raleway',sans-serif;font-weight:700;font-size:0.9rem;
+  cursor:pointer;border-radius:3px;transition:all 0.3s;
+}
+.btn-next:hover{transform:translateY(-1px);box-shadow:0 5px 18px rgba(201,168,76,0.4)}
+.btn-next:disabled{opacity:0.35;cursor:not-allowed;transform:none;box-shadow:none}
+
+/* ===== RESULTS ===== */
+#results{
+  background:var(--navy);
+  padding:4rem 2rem;
+  position:relative;overflow:hidden;
+}
+.results-bg{
+  position:absolute;right:0;top:0;bottom:0;width:45%;
+  opacity:0.12;background-size:cover;background-position:center;
+}
+.results-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
+.results-grid{display:grid;grid-template-columns:220px 1fr;gap:3rem;align-items:center}
+.donut-wrap{position:relative;width:180px;height:180px;margin:0 auto}
+.donut-wrap canvas{display:block}
+.donut-center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center}
+.donut-pct{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--gold);line-height:1}
+.donut-lbl{font-size:0.65rem;color:rgba(232,223,200,0.6);text-transform:uppercase;letter-spacing:0.12em}
+.result-right h2{font-size:clamp(1.4rem,3vw,2rem);color:#E8DFC8;margin-bottom:0.35rem}
+.result-status{font-size:1.15rem;color:var(--gold);font-weight:600;margin-bottom:1.25rem;font-family:'Playfair Display',serif}
+.result-desc{font-size:0.88rem;color:rgba(232,223,200,0.8);line-height:1.8;margin-bottom:2rem}
+.result-desc strong{color:var(--gold-l)}
+.result-actions{display:flex;gap:0.75rem;flex-wrap:wrap}
+.btn-share{
+  display:flex;align-items:center;gap:0.45rem;
+  padding:0.65rem 1.4rem;
+  background:rgba(201,168,76,0.12);
+  border:1px solid rgba(201,168,76,0.45);
+  color:var(--gold);font-family:'Raleway',sans-serif;
+  font-weight:600;font-size:0.82rem;cursor:pointer;
+  border-radius:3px;transition:all 0.25s;
+}
+.btn-share:hover{background:rgba(201,168,76,0.22)}
+.btn-restart{
+  display:flex;align-items:center;gap:0.45rem;
+  padding:0.65rem 1.4rem;
+  background:rgba(255,255,255,0.06);
+  border:1px solid rgba(255,255,255,0.2);
+  color:rgba(232,223,200,0.7);font-family:'Raleway',sans-serif;
+  font-weight:600;font-size:0.82rem;cursor:pointer;
+  border-radius:3px;transition:all 0.25s;
+}
+.btn-restart:hover{border-color:rgba(255,255,255,0.4);color:#E8DFC8}
+
+/* ===== RELATED ===== */
+#related{
+  background:var(--navy);
+  padding:3.5rem 2rem;
+  border-top:1px solid rgba(255,255,255,0.06);
+}
+.related-header{
+  display:flex;align-items:center;gap:1.5rem;
+  max-width:960px;margin:0 auto 2.5rem;
+  color:rgba(232,223,200,0.6);font-size:0.85rem;
+}
+.related-header::before,.related-header::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,168,76,0.25));
+}
+.related-header::after{background:linear-gradient(270deg,transparent,rgba(201,168,76,0.25))}
+.related-title{white-space:nowrap;display:flex;align-items:center;gap:0.5rem;color:rgba(232,223,200,0.7)}
+.proj-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
+.proj-card{
+  background:linear-gradient(160deg,#111E3A 0%,#0D1630 100%);
+  border:1px solid rgba(201,168,76,0.12);
+  padding:1.75rem;border-radius:4px;
+  transition:all 0.3s;display:flex;flex-direction:column;gap:0.85rem;
+  position:relative;overflow:hidden;
+}
+.proj-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4),transparent);
+  opacity:0;transition:opacity 0.3s;
+}
+.proj-card:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.3)}
+.proj-card:hover::before{opacity:1}
+.proj-icon{
+  width:56px;height:56px;border-radius:50%;
+  border:1.5px solid rgba(201,168,76,0.45);
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(201,168,76,0.06);
+  box-shadow:0 0 18px rgba(201,168,76,0.1), inset 0 0 12px rgba(201,168,76,0.05);
+  flex-shrink:0;
+  transition:all 0.3s;
+}
+.proj-card:hover .proj-icon{
+  border-color:rgba(201,168,76,0.8);
+  background:rgba(201,168,76,0.1);
+  box-shadow:0 0 24px rgba(201,168,76,0.25);
+}
+.proj-card h3{font-size:1rem;color:var(--gold);line-height:1.35;margin-top:0.25rem}
+.proj-card p{font-size:0.82rem;color:rgba(232,223,200,0.6);line-height:1.7;flex:1}
+.btn-proj{
+  display:inline-flex;align-items:center;gap:0.3rem;
+  font-size:0.8rem;color:rgba(201,168,76,0.65);text-decoration:none;
+  font-weight:600;border-bottom:1px solid transparent;transition:all 0.2s;
+  margin-top:0.25rem;
+}
+.btn-proj:hover{color:var(--gold);border-color:var(--gold)}
+
+/* ===== FOOTER ===== */
+footer{
+  position:relative;overflow:hidden;
+  background:#071020;
+  border-top:1px solid rgba(201,168,76,0.15);
+  padding:0;
+}
+.footer-bg{
+  position:absolute;inset:0;width:100%;height:100%;
+  object-fit:cover;object-position:center bottom;
+  pointer-events:none;opacity:1;
+}
+.footer-bg-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(5,12,28,0.55) 0%,rgba(5,12,28,0.2) 60%,rgba(5,12,28,0.45) 100%);
+}
+.footer-main{
+  position:relative;z-index:1;
+  max-width:1000px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:2rem;padding:2rem 2.5rem 1rem;
+  align-items:start;
+}
+.footer-col h4{
+  font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;
+  color:rgba(232,223,200,0.5);margin-bottom:1rem;
+  font-family:'Raleway',sans-serif;font-weight:500;
+}
+.f-orgs{display:flex;gap:1.25rem;align-items:center;flex-wrap:nowrap}
+.f-org{display:flex;align-items:center;gap:0.7rem}
+.org-logo{
+  width:52px;height:52px;border-radius:50%;
+  border:1.5px solid rgba(201,168,76,0.55);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.55rem;color:var(--gold);font-weight:700;font-family:'Raleway',sans-serif;
+  text-align:center;line-height:1.2;padding:6px;
+  background:rgba(10,20,45,0.6);flex-shrink:0;
+  box-shadow:0 0 14px rgba(201,168,76,0.12);
+}
+.f-org-name{font-size:0.74rem;color:rgba(232,223,200,0.7);line-height:1.4;max-width:90px}
+.f-contacts{display:flex;flex-direction:row;gap:2rem;align-items:center;flex-wrap:wrap}
+.f-contact{display:flex;align-items:center;gap:0.6rem;font-size:0.83rem;color:rgba(232,223,200,0.65)}
+.f-contact-icon{
+  width:28px;height:28px;border:1px solid rgba(201,168,76,0.35);border-radius:4px;
+  display:flex;align-items:center;justify-content:center;font-size:0.82rem;flex-shrink:0;
+  background:rgba(10,20,45,0.5);
+}
+.f-contact a{color:rgba(232,223,200,0.7);text-decoration:none;transition:color 0.2s}
+.f-contact a:hover{color:var(--gold)}
+.f-bottom-wrap{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,0.06)}
+.f-bottom{
+  max-width:1000px;margin:0 auto;
+  text-align:center;font-size:0.75rem;
+  color:rgba(232,223,200,0.3);
+  padding:0.85rem 2rem 1rem;
+}
+
+/* Modal */
+.modal-overlay{position:fixed;inset:0;background:rgba(5,10,25,0.88);z-index:999;display:flex;align-items:center;justify-content:center;padding:2rem}
+.modal-box{background:var(--navy-card);border:1px solid rgba(201,168,76,0.3);max-width:550px;width:100%;padding:2.25rem;border-radius:3px;position:relative;max-height:80vh;overflow-y:auto}
+.modal-close{position:absolute;top:0.9rem;right:0.9rem;background:none;border:none;color:rgba(232,223,200,0.4);font-size:1.2rem;cursor:pointer}
+.modal-close:hover{color:var(--gold)}
+.modal-box h2{font-size:1.3rem;color:var(--gold);margin-bottom:1rem}
+.modal-box p{color:rgba(232,223,200,0.75);line-height:1.75;font-size:0.88rem;margin-bottom:0.75rem}
+.modal-box strong{color:var(--gold-l)}
+
+/* Cosmic tree SVG deco */
+.tree-deco{position:absolute;right:0;top:0;height:100%;width:40%;opacity:0.08;pointer-events:none}
+
+/* Responsive */
+@media(max-width:900px){
+  .about-inner{grid-template-columns:1fr}
+  .about-portrait-col{flex-direction:row;border-right:none;border-bottom:1px solid var(--border);padding:1.25rem 1.5rem}
+  .about-deco{display:none}
+  .section-ornament-inner{grid-template-columns:80px 1fr}
+  .orn-deco{display:none}
+  .form-row{grid-template-columns:1fr 1fr}
+  .proj-grid{grid-template-columns:1fr}
+  .footer-inner{grid-template-columns:1fr}
+  .results-grid{grid-template-columns:1fr;text-align:center}
+  .donut-wrap{margin:0 auto 1.5rem}
+  .result-actions{justify-content:center}
+}
+@media(max-width:600px){
+  .hero-poster{display:none}
+  .hero-poster-v{display:block;width:100%;height:100vh;object-fit:cover;object-position:center top}
+  .form-row{grid-template-columns:1fr}
+  .btn-cta{width:100%;justify-content:center}
+  .f-orgs{justify-content:center}
+  .proj-grid{grid-template-columns:1fr}
+  .hero-overlay{padding:0 1rem 3rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <img src="img.jpg" alt="Космизм" class="hero-poster">
+  <img src="img.jpg" alt="Космизм" class="hero-poster-v">
+  <div class="hero-overlay">
+    <p class="hero-eyebrow">XXII Международные научные чтения памяти Н. Ф. Фёдорова</p>
+    <h1 class="hero-title">ЧТО ОТВЕТИМ<br>ФЁДОРОВУ?</h1>
+    <p class="hero-sub">Интерактивный опрос о жизни, памяти, науке и будущем</p>
+    <p class="hero-desc">Ответьте на 12 вопросов и узнайте свой космистский индекс</p>
+    <div class="hero-meta">
+      <span>12 вопросов</span>
+      <span>5–7 минут</span>
+      <span>Анонимно или с именем</span>
+    </div>
+    <a href="#registration" class="btn-cta">Начать опрос</a>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-portrait-col">
+      <div class="portrait-circle">
+        <img src="ava.jpg" alt="Н. Ф. Фёдоров">
+      </div>
+      <span class="portrait-label">Н. Ф. Фёдоров<br><small>1829–1903</small></span>
+    </div>
+    <div class="about-content">
+      <h2>Кто такой Н. Ф. Фёдоров?</h2>
+      <p>Николай Фёдорович Фёдоров — русский религиозный мыслитель, философ-космист, основатель учения об «Общем деле». Служил библиотекарем Румянцевского музея в Москве, никогда не публиковал своих работ при жизни, но оказал огромное влияние на Толстого, Достоевского, Циолковского и многих других.</p>
+      <p>Главная идея Фёдорова: человечество должно объединиться ради победы над смертью и воскрешения всех умерших поколений. Наука, культура и техника — не самоцель, а инструмент этого «Общего дела».</p>
+      <a href="http://nffedorov.ru/" target="_blank" class="link-gold">Подробнее о философии Фёдорова →</a>
+    </div>
+    <div class="about-deco">◈<br>◇<br>◈</div>
+  </div>
+</section>
+
+<!-- ===== MOTIVATION ===== -->
+<div class="section-ornament">
+  <div class="section-ornament-inner">
+    <div class="orn-icon">✦</div>
+    <div class="orn-content">
+      <h2>Зачем мы это делаем?</h2>
+      <p>Этот опрос — не экзамен и не проверка знаний. Это приглашение к размышлению. Сравните свои взгляды с идеями Фёдорова и русских космистов о жизни, памяти, науке и будущем человечества. Ваш голос поможет понять, насколько эти идеи актуальны сегодня — и какими мы видим завтрашний день.</p>
+    </div>
+    <div class="orn-deco">
+      <svg width="60" height="80" viewBox="0 0 60 80" opacity="0.35">
+        <!-- Compass rose -->
+        <circle cx="30" cy="40" r="20" fill="none" stroke="#C9A84C" stroke-width="0.8"/>
+        <circle cx="30" cy="40" r="14" fill="none" stroke="#C9A84C" stroke-width="0.5"/>
+        <line x1="30" y1="20" x2="30" y2="60" stroke="#C9A84C" stroke-width="0.8"/>
+        <line x1="10" y1="40" x2="50" y2="40" stroke="#C9A84C" stroke-width="0.8"/>
+        <polygon points="30,22 32,35 28,35" fill="#C9A84C" opacity="0.7"/>
+        <polygon points="30,58 28,45 32,45" fill="#C9A84C" opacity="0.4"/>
+        <circle cx="30" cy="40" r="3" fill="#C9A84C" opacity="0.6"/>
+        <!-- tick marks -->
+        <line x1="30" y1="20" x2="30" y2="23" stroke="#C9A84C" stroke-width="1"/>
+        <line x1="50" y1="40" x2="47" y2="40" stroke="#C9A84C" stroke-width="1"/>
+        <line x1="10" y1="40" x2="13" y2="40" stroke="#C9A84C" stroke-width="1"/>
+        <line x1="30" y1="60" x2="30" y2="57" stroke="#C9A84C" stroke-width="1"/>
+      </svg>
+    </div>
+  </div>
+</div>
+
+<!-- ===== REGISTRATION ===== -->
+<section id="registration" class="light-section">
+  <div class="reg-inner">
+    <div class="reg-header">
+      <p class="reg-title">Расскажите о себе <span style="font-weight:400;color:var(--text-muted)">(по желанию)</span></p>
+      <p class="anon-note">Можно пройти опрос анонимно</p>
+    </div>
+    <div class="form-row">
+      <div class="form-group">
+        <label>Имя или псевдоним <span style="color:var(--gold)">*</span></label>
+        <input type="text" id="name" placeholder="Введите имя или псевдоним">
+        <span class="form-err hidden" id="name-err">Укажите имя</span>
+      </div>
+      <div class="form-group">
+        <label>Возрастная группа</label>
+        <select id="age">
+          <option value="">Выберите</option>
+          <option value="u18">До 18 лет</option>
+          <option value="18-25">18–25 лет</option>
+          <option value="26-35">26–35 лет</option>
+          <option value="36-50">36–50 лет</option>
+          <option value="50+">50+ лет</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Город / регион</label>
+        <input type="text" id="city" placeholder="Введите город или регион">
+      </div>
+      <div class="form-group">
+        <label>Email или VK <span style="color:var(--text-muted);font-weight:400">(необязательно)</span></label>
+        <input type="text" id="contact" placeholder="email@example.com или vk.com/id123">
+      </div>
+    </div>
+    <label class="checkbox-row">
+      <input type="checkbox" id="consent">
+      <span>Согласен(а) на <a href="#" onclick="showPrivacy(event)" class="link-gold" style="font-size:0.82rem">обработку персональных данных</a></span>
+    </label>
+    <span class="form-err hidden" id="consent-err">Необходимо согласие</span>
+    <br style="margin-bottom:0.75rem">
+    <button class="btn-start" onclick="startQuiz()">Перейти к вопросам</button>
+  </div>
+</section>
+
+<!-- ===== QUIZ ===== -->
+<section id="quiz" class="hidden light-section">
+  <div class="quiz-inner">
+    <div class="quiz-top">
+      <span class="q-label" id="q-label">Вопрос 1 из 12</span>
+      <span class="q-pct" id="q-pct">8%</span>
+    </div>
+    <div class="prog-track"><div class="prog-fill" id="prog-fill" style="width:8%"></div></div>
+    <div class="q-block" id="q-block"></div>
+    <p class="hint">Нет правильного или неправильного ответа. Выбирайте то, что ближе вам по ощущениям.</p>
+    <div class="quiz-nav">
+      <button class="btn-back" id="btn-back" onclick="goBack()">← Назад</button>
+      <button class="btn-next" id="btn-next" onclick="goNext()" disabled>Далее →</button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RESULTS ===== -->
+<section id="results" class="hidden">
+  <!-- Decorative tree -->
+  <svg class="tree-deco" viewBox="0 0 300 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g stroke="#C9A84C" stroke-width="1" opacity="0.6">
+      <line x1="150" y1="580" x2="150" y2="350"/>
+      <line x1="150" y1="480" x2="80" y2="380"/>
+      <line x1="150" y1="460" x2="220" y2="360"/>
+      <line x1="80" y1="380" x2="40" y2="300"/>
+      <line x1="80" y1="380" x2="110" y2="300"/>
+      <line x1="220" y1="360" x2="190" y2="270"/>
+      <line x1="220" y1="360" x2="260" y2="280"/>
+      <line x1="40" y1="300" x2="20" y2="220"/>
+      <line x1="40" y1="300" x2="60" y2="220"/>
+      <line x1="110" y1="300" x2="90" y2="220"/>
+      <line x1="110" y1="300" x2="130" y2="220"/>
+      <line x1="190" y1="270" x2="170" y2="190"/>
+      <line x1="260" y1="280" x2="280" y2="200"/>
+      <!-- Stars at branch tips -->
+      <circle cx="20" cy="220" r="3" fill="#C9A84C"/>
+      <circle cx="60" cy="220" r="2" fill="#C9A84C"/>
+      <circle cx="90" cy="220" r="3" fill="#C9A84C"/>
+      <circle cx="130" cy="220" r="2" fill="#C9A84C"/>
+      <circle cx="170" cy="190" r="3" fill="#C9A84C"/>
+      <circle cx="280" cy="200" r="2" fill="#C9A84C"/>
+      <!-- Small figures at base -->
+      <ellipse cx="120" cy="590" rx="8" ry="4" opacity="0.5"/>
+      <ellipse cx="150" cy="590" rx="8" ry="4" opacity="0.5"/>
+      <ellipse cx="180" cy="590" rx="8" ry="4" opacity="0.5"/>
+    </g>
+    <!-- Golden glow icons along tree -->
+    <circle cx="150" cy="530" r="10" fill="none" stroke="#C9A84C" stroke-width="0.8" opacity="0.4"/>
+    <text x="150" y="534" text-anchor="middle" fill="#C9A84C" font-size="10" opacity="0.5">★</text>
+    <circle cx="80" cy="430" r="8" fill="none" stroke="#C9A84C" stroke-width="0.8" opacity="0.4"/>
+    <circle cx="220" cy="410" r="8" fill="none" stroke="#C9A84C" stroke-width="0.8" opacity="0.4"/>
+  </svg>
+  <div class="results-inner">
+    <div class="results-grid">
+      <div>
+        <div class="donut-wrap">
+          <canvas id="donut-chart" width="180" height="180"></canvas>
+          <div class="donut-center">
+            <div class="donut-pct" id="donut-pct">0%</div>
+            <div class="donut-lbl">индекс</div>
+          </div>
+        </div>
+      </div>
+      <div class="result-right">
+        <h2>Ваш космистский индекс — <span id="res-pct">0</span>%</h2>
+        <p class="result-status" id="res-status"></p>
+        <div class="result-desc" id="res-desc"></div>
+        <div class="result-actions">
+          <button class="btn-share" onclick="shareVK()">⇪ Поделиться результатом</button>
+          <button class="btn-restart" onclick="restart()">↺ Пройти ещё раз</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== RELATED ===== -->
+<section id="related">
+  <div class="related-header">
+    <p class="related-title">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="display:inline;vertical-align:middle;margin-right:8px"><polygon points="7,0 8.5,5 14,5.5 10,9 11.5,14 7,11 2.5,14 4,9 0,5.5 5.5,5" fill="#C9A84C" opacity="0.8"/></svg>
+      Изучайте и участвуйте в проектах о наследии Фёдорова и космизме
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="display:inline;vertical-align:middle;margin-left:8px"><polygon points="7,0 8.5,5 14,5.5 10,9 11.5,14 7,11 2.5,14 4,9 0,5.5 5.5,5" fill="#C9A84C" opacity="0.8"/></svg>
+    </p>
+  </div>
+  <div class="proj-grid">
+
+    <div class="proj-card">
+      <div class="proj-icon">
+        <!-- Открытая книга с лучом -->
+        <svg viewBox="0 0 48 48" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M24 10 C20 10 10 12 6 16 L6 40 C10 37 20 36 24 38 C28 36 38 37 42 40 L42 16 C38 12 28 10 24 10 Z" stroke="#C9A84C" stroke-width="1.4" stroke-linejoin="round"/>
+          <line x1="24" y1="10" x2="24" y2="38" stroke="#C9A84C" stroke-width="1.4"/>
+          <line x1="10" y1="20" x2="22" y2="21" stroke="#C9A84C" stroke-width="0.9" opacity="0.55" stroke-linecap="round"/>
+          <line x1="10" y1="25" x2="22" y2="26" stroke="#C9A84C" stroke-width="0.9" opacity="0.55" stroke-linecap="round"/>
+          <line x1="10" y1="30" x2="22" y2="31" stroke="#C9A84C" stroke-width="0.9" opacity="0.55" stroke-linecap="round"/>
+          <line x1="26" y1="21" x2="38" y2="20" stroke="#C9A84C" stroke-width="0.9" opacity="0.55" stroke-linecap="round"/>
+          <line x1="26" y1="26" x2="38" y2="25" stroke="#C9A84C" stroke-width="0.9" opacity="0.55" stroke-linecap="round"/>
+          <line x1="26" y1="31" x2="38" y2="30" stroke="#C9A84C" stroke-width="0.9" opacity="0.55" stroke-linecap="round"/>
+          <!-- лучик сверху -->
+          <line x1="24" y1="4" x2="24" y2="9" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
+          <line x1="20" y1="5.5" x2="22" y2="8" stroke="#C9A84C" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+          <line x1="28" y1="5.5" x2="26" y2="8" stroke="#C9A84C" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
+        </svg>
+      </div>
+      <h3>XXII Фёдоровские чтения</h3>
+      <p>Ежегодная международная научная конференция о будущем человека и мироздания. 4–7 июня 2026 года.</p>
+      <a href="http://nffedorov.ru/" target="_blank" class="btn-proj">Подробнее →</a>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-icon">
+        <!-- Перо / свиток -->
+        <svg viewBox="0 0 48 48" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Свиток -->
+          <rect x="10" y="10" width="28" height="32" rx="3" stroke="#C9A84C" stroke-width="1.4"/>
+          <ellipse cx="24" cy="10" rx="8" ry="3" stroke="#C9A84C" stroke-width="1.2"/>
+          <ellipse cx="24" cy="42" rx="8" ry="3" stroke="#C9A84C" stroke-width="1.2"/>
+          <!-- линии текста -->
+          <line x1="15" y1="18" x2="33" y2="18" stroke="#C9A84C" stroke-width="0.9" opacity="0.6" stroke-linecap="round"/>
+          <line x1="15" y1="23" x2="33" y2="23" stroke="#C9A84C" stroke-width="0.9" opacity="0.6" stroke-linecap="round"/>
+          <line x1="15" y1="28" x2="27" y2="28" stroke="#C9A84C" stroke-width="0.9" opacity="0.6" stroke-linecap="round"/>
+          <!-- звёздочка -->
+          <circle cx="35" cy="10" r="4" fill="#0D1732"/>
+          <polygon points="35,6.5 35.9,9.1 38.6,9.1 36.4,10.8 37.2,13.5 35,11.8 32.8,13.5 33.6,10.8 31.4,9.1 34.1,9.1" fill="#C9A84C" opacity="0.9"/>
+        </svg>
+      </div>
+      <h3>Конкурс «Голос Фёдорова»</h3>
+      <p>Конкурс эссе, научных и творческих работ для всех, кто мыслит о будущем человечества.</p>
+      <a href="http://nffedorov.ru/" target="_blank" class="btn-proj">Подробнее →</a>
+    </div>
+
+    <div class="proj-card">
+      <div class="proj-icon">
+        <!-- Люди вокруг общего центра -->
+        <svg viewBox="0 0 48 48" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- central dot -->
+          <circle cx="24" cy="24" r="3.5" fill="#C9A84C" opacity="0.9"/>
+          <!-- connecting lines -->
+          <line x1="24" y1="24" x2="24" y2="9"  stroke="#C9A84C" stroke-width="0.9" opacity="0.4" stroke-dasharray="2,2"/>
+          <line x1="24" y1="24" x2="38" y2="32" stroke="#C9A84C" stroke-width="0.9" opacity="0.4" stroke-dasharray="2,2"/>
+          <line x1="24" y1="24" x2="10" y2="32" stroke="#C9A84C" stroke-width="0.9" opacity="0.4" stroke-dasharray="2,2"/>
+          <!-- person top -->
+          <circle cx="24" cy="6"  r="3" stroke="#C9A84C" stroke-width="1.2"/>
+          <path d="M19 14 Q24 11 29 14 L29 19 L19 19 Z" stroke="#C9A84C" stroke-width="1.1" stroke-linejoin="round"/>
+          <!-- person right -->
+          <circle cx="41" cy="35" r="3" stroke="#C9A84C" stroke-width="1.2"/>
+          <path d="M36 43 Q41 40 46 43 L46 48 L36 48 Z" stroke="#C9A84C" stroke-width="1.1" stroke-linejoin="round"/>
+          <!-- person left -->
+          <circle cx="7"  cy="35" r="3" stroke="#C9A84C" stroke-width="1.2"/>
+          <path d="M2  43 Q7  40 12 43 L12 48 L2  48 Z" stroke="#C9A84C" stroke-width="1.1" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h3>Секция «Общее дело как проект»</h3>
+      <p>Дискуссионная площадка о совместных действиях ради будущих поколений.</p>
+      <a href="http://nffedorov.ru/" target="_blank" class="btn-proj">Подробнее →</a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <img src="fut.jpg" alt="" class="footer-bg">
+  <div class="footer-bg-overlay"></div>
+
+  <div class="footer-main">
+    <div class="footer-col">
+      <h4>Организаторы</h4>
+      <div class="f-orgs">
+
+        <!-- ВОИР -->
+        <div class="f-org">
+          <div class="org-logo">
+            <svg viewBox="0 0 44 44" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="22" cy="22" r="20" stroke="#C9A84C" stroke-width="1.2"/>
+              <!-- gear teeth -->
+              <circle cx="22" cy="22" r="10" stroke="#C9A84C" stroke-width="1.2"/>
+              <circle cx="22" cy="22" r="4"  stroke="#C9A84C" stroke-width="1"/>
+              <line x1="22" y1="9"  x2="22" y2="12" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+              <line x1="22" y1="32" x2="22" y2="35" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+              <line x1="9"  y1="22" x2="12" y2="22" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+              <line x1="32" y1="22" x2="35" y2="22" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+              <line x1="13.1" y1="13.1" x2="15.2" y2="15.2" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+              <line x1="28.8" y1="28.8" x2="30.9" y2="30.9" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+              <line x1="30.9" y1="13.1" x2="28.8" y2="15.2" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+              <line x1="15.2" y1="28.8" x2="13.1" y2="30.9" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <span class="f-org-name">ВОИР</span>
+        </div>
+
+        <!-- Фонд Наука за продление жизни -->
+        <div class="f-org">
+          <div class="org-logo">
+            <svg viewBox="0 0 44 44" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- tree trunk -->
+              <line x1="22" y1="38" x2="22" y2="22" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round"/>
+              <!-- roots -->
+              <line x1="22" y1="36" x2="16" y2="40" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/>
+              <line x1="22" y1="36" x2="28" y2="40" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/>
+              <!-- branches -->
+              <line x1="22" y1="22" x2="12" y2="14" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round"/>
+              <line x1="22" y1="22" x2="32" y2="14" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round"/>
+              <line x1="22" y1="26" x2="14" y2="20" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/>
+              <line x1="22" y1="26" x2="30" y2="20" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/>
+              <!-- leaves/circles -->
+              <circle cx="11" cy="12" r="4" stroke="#C9A84C" stroke-width="1"/>
+              <circle cx="33" cy="12" r="4" stroke="#C9A84C" stroke-width="1"/>
+              <circle cx="22" cy="8"  r="5" stroke="#C9A84C" stroke-width="1"/>
+              <circle cx="13" cy="18" r="3" stroke="#C9A84C" stroke-width="1"/>
+              <circle cx="31" cy="18" r="3" stroke="#C9A84C" stroke-width="1"/>
+            </svg>
+          </div>
+          <span class="f-org-name">Фонд «Наука за продление жизни»</span>
+        </div>
+
+        <!-- Тюменское ВОИР -->
+        <div class="f-org">
+          <div class="org-logo">
+            <svg viewBox="0 0 44 44" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- compass outer -->
+              <circle cx="22" cy="22" r="18" stroke="#C9A84C" stroke-width="1.2"/>
+              <circle cx="22" cy="22" r="3"  fill="#C9A84C"/>
+              <!-- N arrow up -->
+              <polygon points="22,5 19,18 22,15 25,18" fill="#C9A84C"/>
+              <!-- S arrow down -->
+              <polygon points="22,39 25,26 22,29 19,26" fill="#C9A84C" opacity="0.45"/>
+              <!-- W & E ticks -->
+              <line x1="4"  y1="22" x2="8"  y2="22" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+              <line x1="36" y1="22" x2="40" y2="22" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
+              <!-- diagonal ticks -->
+              <line x1="9.5"  y1="9.5"  x2="11.9" y2="11.9" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
+              <line x1="32.1" y1="32.1" x2="34.5" y2="34.5" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
+              <line x1="34.5" y1="9.5"  x2="32.1" y2="11.9" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
+              <line x1="11.9" y1="32.1" x2="9.5"  y2="34.5" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
+            </svg>
+          </div>
+          <span class="f-org-name">Тюменское отделение ВОИР</span>
+        </div>
+
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Контакты</h4>
+      <div class="f-contacts">
+        <div class="f-contact">
+          <div class="f-contact-icon">✉</div>
+          <a href="mailto:info@fedorov.readings.ru">info@fedorov.readings.ru</a>
+        </div>
+        <div class="f-contact">
+          <div class="f-contact-icon">✆</div>
+          <a href="tel:+73452567890">+7 (3452) 56-78-90</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="f-bottom-wrap">
+    <div class="f-bottom">© 2025 Проект «Что ответим Фёдорову?»</div>
+  </div>
+</footer>
+
+<!-- Privacy Modal -->
+<div class="modal-overlay hidden" id="modal">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h2>Обработка персональных данных</h2>
+    <p><strong>Обработка данных:</strong> Ваши данные обрабатываются только в целях проведения опроса и формирования статистики.</p>
+    <p><strong>Конфиденциальность:</strong> Данные не передаются третьим лицам и не используются в коммерческих целях. Результаты обобщаются анонимно.</p>
+    <p><strong>Согласие:</strong> При заполнении формы вы подтверждаете согласие на обработку своих данных.</p>
+    <p><strong>Прозрачность:</strong> Вы в любой момент можете отказаться от предоставления дополнительных данных, сохранив возможность пройти опрос анонимно.</p>
+  </div>
+</div>
+
+<script>
+const Q=[
+  {q:"Что, на ваш взгляд, должно быть главной задачей развития человечества?",opts:["Повышение уровня жизни, комфорта, доходов и доступности благ.","Справедливое распределение ресурсов и снижение бедности, чтобы люди жили достойнее.","Борьба со страданием, болезнями, старением и преждевременной смертью как главными источниками человеческой бедности.","Преодоление смерти и возвращение жизни всем ушедшим поколениям, преображение человечества в братство, сознательно-творческое управление земными и космическими процессами."]},
+  {q:"Что делает веру, философию или мировоззрение по-настоящему живыми?",opts:["Они помогают человеку внутренне успокоиться и найти личный смысл.","Они учат нравственности, состраданию и уважению к другим людям.","Они должны вести людей к реальным делам заботы, памяти, просвещения и солидарности.","Они должны помочь человеку задаться вопросом: «Почему живущее страдает и умирает?», стать смысловой опорой Общего дела — совместного труда людей ради победы над смертью, забвением и разобщением."]},
+  {q:"Каким должно быть отношение человечества к природе?",opts:["Использовать природные ресурсы разумно, чтобы поддерживать развитие экономики.","Снижать вред для природы и жить экологичнее.","Научиться восстанавливать нарушенные природные процессы и предотвращать катастрофы.","Человечество как разумная, творческая сила природы должно перейти от эксплуатации ресурсов к регуляции природных процессов ради жизни живущих и воскрешения ушедших."]},
+  {q:"Какой прогресс вы считаете настоящим?",opts:["Тот, который даёт больше технологий, скорости, удобства и возможностей.","Тот, который делает общество гуманнее, справедливее и образованнее.","Тот, который уменьшает страдание, продлевает жизнь и помогает людям объединяться.","Тот, который ориентирует науку, технику, культуру на решение задачи преодоления смерти, восстановления утраченного и спасения всех поколений."]},
+  {q:"Как вы понимаете долг памяти перед умершими?",opts:["Нужно помнить близких, заботиться об их могилах, хранить фотографии и семейные истории.","Нужно сохранять культурную и историческую память народа, архивы, биографии, имена.","Память должна становиться делом: восстановлением судеб, заботой о наследии, передачей опыта будущим поколениям.","Память не может останавливаться на воспоминании: подлинный долг перед ушедшими — стремиться к их реальному возвращению к жизни."]},
+  {q:"Какая любовь кажется вам наиболее высокой?",opts:["Любовь как личное чувство, близость и счастье двух людей.","Любовь как забота, верность, семья и ответственность за близких.","Любовь как расширение родства: забота о живых, старших, младших, слабых, будущих поколениях.","Любовь как долг воскрешения и восстановления общечеловеческого родства: невозможность примириться с исчезновением дорогих нам людей, расширение любви на всех живших и живущих."]},
+  {q:"Как вы понимаете свободу человека?",opts:["Свобода — это право жить по-своему и самому выбирать свои цели.","Свобода должна сочетаться с ответственностью перед другими людьми.","Настоящая свобода раскрывается, когда люди добровольно объединяются ради больших общих задач.","Высшая свобода — добровольное сотрудничество людей в деле преодоления смерти и розни; управление природными процессами сделает человека подлинно свободным существом."]},
+  {q:"Какую роль должна играть наука в будущем человечества?",opts:["Наука должна объективно изучать мир и расширять знания.","Наука должна приносить пользу обществу: лечить, обучать, улучшать качество жизни.","Наука должна сознательно служить уменьшению страдания, продлению жизни и защите человека.","Наука должна стать орудием Общего дела — служением жизни, бессмертию и воскрешению всех ушедших поколений."]},
+  {q:"Какое отношение к старению и смерти вам ближе?",opts:["Старение и смерть — естественная часть жизни, с которой нужно примириться.","Нужно достойно сопровождать старость, облегчать страдания и уважать конец жизни.","Нужно активно бороться со старением, болезнями и преждевременной смертью научными средствами.","Человечество не должно признавать смерть нормой; преодоление смерти и возвращение жизни умершим должно стать центральной задачей истории."]},
+  {q:"Для чего в первую очередь нужно образование?",opts:["Чтобы человек получил профессию, доход и место в обществе.","Чтобы человек стал культурнее, свободнее и ответственнее.","Чтобы соединять людей разных поколений и профессий вокруг решения общих задач.","Чтобы все люди стали участниками Общего дела познания и преобразования мира ради жизни."]},
+  {q:"Что для вас означает освоение космоса?",opts:["Это научный и технологический вызов, престиж и развитие цивилизации.","Это расширение человеческого горизонта, вдохновение, исследование Вселенной.","Это часть долгосрочного будущего человечества, где наука, культура и ответственность выходят за пределы Земли.","Космос должен стать пространством Общего дела — будущим домом преображённого человечества и всех возвращённых поколений."]},
+  {q:"Какой общественный порядок кажется вам наиболее зрелым?",opts:["Такой, где каждый защищает свои интересы, права и свободы.","Такой, где государство и общество обеспечивают справедливые правила и защиту человека.","Такой, где люди, организации, наука, культура и государство объединяются вокруг долгосрочных задач развития.","Такой, где человечество взрослеет до Общего дела: сознательное родственное сотрудничество ради жизни, памяти и будущего."]}
+];
+const CATS=[
+  {l:"Осторожный гуманист",min:0,max:9,d:`<p>Вы ставите в центр своих принципов <strong>достоинство человека, заботу, справедливость и улучшение качества жизни</strong> здесь и сейчас. Вам близка культура памяти и уважение к ушедшим, но вы, скорее всего, воспринимаете радикальные идеи космизма как метафору или далёкий горизонт.</p><p><strong>Ваш фокус:</strong> делать жизнь людей лучше в реальности, шаг за шагом. <strong>Ваше «да» Фёдорову:</strong> сострадание, культура, ответственность.</p>`},
+  {l:"Сочувствующий космизму",min:10,max:18,d:`<p>Вы <strong>разделяете главный нерв космизма</strong>: неравнодушие к теме смерти, смысла науки, долга памяти и будущего. Вам близка мысль, что мир можно и нужно преобразовывать, но вы сохраняете осторожность к самым радикальным выводам.</p><p><strong>Ваш фокус:</strong> ответственность, просвещение, солидарность, снижение страдания. <strong>Ваше «да» Фёдорову:</strong> наука и культура должны служить человеку.</p>`},
+  {l:"Практический космист",min:19,max:25,d:`<p>Вы воспринимаете космизм не только как философию, а как <strong>проектный принцип</strong>: объединяться ради больших задач — памяти, науки, образования, продления жизни, будущего. Вы готовы переводить идеи в действия.</p><p><strong>Ваш фокус:</strong> Общее дело как практика — «делать вместе». <strong>Ваше «да» Фёдорову:</strong> будущего не бывает без ответственности и совместного труда.</p>`},
+  {l:"Убеждённый космист",min:26,max:31,d:`<p>Вам близок космизм как <strong>мировоззрение</strong>: смерть — не просто «часть природы», а проблема, с которой разум и культура не должны мириться. Вы ясно видите необходимость объединения людей ради задач, превышающих частные интересы.</p><p><strong>Ваш фокус:</strong> наука, культура и общество как единый субъект будущего. <strong>Ваше ощущение:</strong> будущее — это задача, а не случайность.</p>`},
+  {l:"Космист-преобразователь",min:32,max:36,d:`<p>Ваши ответы максимально близки к радикальному горизонту Фёдорова: <strong>смерть не принимается как норма</strong>, память — призыв к восстановлению, наука — инструмент преодоления распада, а человечество — единый субъект Общего дела.</p><p><strong>Ваш фокус:</strong> жизнь, бессмертие, воскрешение как нравственная задача. <strong>«Невозможное»</strong> — не мечта, а направление труда.</p>`}
+];
+
+let cur=0,ans=new Array(12).fill(-1);
+
+function startQuiz(){
+  const n=document.getElementById("name").value.trim();
+  const c=document.getElementById("consent").checked;
+  let ok=true;
+  document.getElementById("name-err").classList.add("hidden");
+  document.getElementById("consent-err").classList.add("hidden");
+  if(!n){document.getElementById("name-err").classList.remove("hidden");ok=false}
+  if(!c){document.getElementById("consent-err").classList.remove("hidden");ok=false}
+  if(!ok)return;
+  ans=new Array(12).fill(-1);cur=0;
+  document.getElementById("quiz").classList.remove("hidden");
+  renderQ();
+  document.getElementById("quiz").scrollIntoView({behavior:"smooth"});
+}
+
+function renderQ(){
+  const q=Q[cur],n=Q.length,pct=Math.round(((cur+1)/n)*100);
+  document.getElementById("q-label").textContent=`Вопрос ${cur+1} из ${n}`;
+  document.getElementById("q-pct").textContent=`${pct}%`;
+  document.getElementById("prog-fill").style.width=`${pct}%`;
+  document.getElementById("btn-back").style.visibility=cur===0?"hidden":"visible";
+  const btn=document.getElementById("btn-next");
+  btn.textContent=cur===n-1?"Завершить →":"Далее →";
+  btn.disabled=ans[cur]===-1;
+  document.getElementById("q-block").innerHTML=`
+    <div class="q-text">${q.q}</div>
+    <div class="options">
+      ${q.opts.map((o,i)=>`
+        <label class="opt-lbl${ans[cur]===i?" sel":""}" onclick="pick(${i})">
+          <input type="radio" name="q" value="${i}"${ans[cur]===i?" checked":""}>
+          <div class="opt-radio"></div>
+          <span class="opt-txt">${o}</span>
+        </label>`).join("")}
+    </div>`;
+  const b=document.getElementById("q-block");
+  b.style.animation="none";b.offsetHeight;b.style.animation="";
+}
+
+function pick(i){ans[cur]=i;document.getElementById("btn-next").disabled=false;renderQ()}
+function goNext(){
+  if(ans[cur]===-1)return;
+  if(cur===Q.length-1){showResults();return}
+  cur++;renderQ();
+  document.getElementById("quiz").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function goBack(){if(cur>0){cur--;renderQ()}}
+
+function showResults(){
+  const total=ans.reduce((s,a)=>s+(a<0?0:a),0);
+  const pct=Math.round((total/36)*100);
+  const cat=CATS.find(c=>total>=c.min&&total<=c.max)||CATS[4];
+  document.getElementById("quiz").classList.add("hidden");
+  const res=document.getElementById("results");
+  res.classList.remove("hidden");
+  document.getElementById("res-pct").textContent=pct;
+  document.getElementById("res-status").textContent=cat.l;
+  document.getElementById("res-desc").innerHTML=cat.d;
+  document.getElementById("donut-pct").textContent=pct+"%";
+  res.scrollIntoView({behavior:"smooth"});
+  setTimeout(()=>drawDonut(pct),150);
+  window._rp=pct;window._rl=cat.l;
+
+  // Отправляем результаты на сервер
+  const name = document.getElementById('name')?.value.trim();
+  const city = document.getElementById('city')?.value.trim();
+  const contact = document.getElementById('contact')?.value.trim();
+  const isAnonymous = !name;
+
+  const answers = ans.map((answerIndex, qIndex) => ({
+    qIndex,
+    answerIndex,
+    score: answerIndex >= 0 ? answerIndex : 0
+  }));
+
+  fetch('https://script.google.com/macros/s/AKfycbwnJSupIoMsvLKKWRjzIJ25ZzE45wIrSUa2FEe1AkidmfedxWXsI4g2QjEVz8tVxQk3jw/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({
+      name: name || null,
+      isAnonymous,
+      city: city || null,
+      email: contact || null,
+      cosmicIndex: pct,
+      profileTitle: cat.l,
+      answers
+    })
+  })
+  .then(r => r.json())
+  .then(data => {
+    if (data.resultId) {
+      console.log('✅ Результат сохранён, ID:', data.resultId);
+    }
+  })
+  .catch(err => console.warn('Не удалось сохранить результат:', err));
+}
+
+function drawDonut(pct){
+  const cv=document.getElementById("donut-chart"),ctx=cv.getContext("2d");
+  const cx=90,cy=90,r=72,lw=16;
+  const target=(pct/100)*Math.PI*2,start=-Math.PI/2;
+  let c=0;
+  const anim=()=>{
+    c+=target/45;if(c>target)c=target;
+    ctx.clearRect(0,0,180,180);
+    ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);
+    ctx.strokeStyle="rgba(255,255,255,0.07)";ctx.lineWidth=lw;ctx.stroke();
+    if(c>0){
+      ctx.beginPath();ctx.arc(cx,cy,r,start,start+c);
+      const g=ctx.createLinearGradient(cx-r,cy,cx+r,cy);
+      g.addColorStop(0,"#8B6914");g.addColorStop(0.5,"#C9A84C");g.addColorStop(1,"#E8C97A");
+      ctx.strokeStyle=g;ctx.lineWidth=lw;ctx.lineCap="round";ctx.stroke();
+    }
+    if(c<target)requestAnimationFrame(anim);
+  };anim();
+}
+
+function shareVK(){
+  const u=encodeURIComponent(location.href);
+  const t=encodeURIComponent(`Мой космистский индекс — ${window._rp||0}%! Я — «${window._rl||""}». Пройди опрос «Что ответим Фёдорову?»`);
+  window.open(`https://vk.com/share.php?url=${u}&title=${t}`,"_blank");
+}
+function restart(){
+  document.getElementById("results").classList.add("hidden");
+  ans=new Array(12).fill(-1);cur=0;
+  document.getElementById("registration").scrollIntoView({behavior:"smooth"});
+}
+function showPrivacy(e){e.preventDefault();document.getElementById("modal").classList.remove("hidden")}
+function closeModal(){document.getElementById("modal").classList.add("hidden")}
+document.getElementById("modal").addEventListener("click",function(e){if(e.target===this)closeModal()});
+</script>
+</body>
+</html>
