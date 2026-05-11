@@ -369,8 +369,11 @@ footer{
   box-shadow:0 0 14px rgba(201,168,76,0.12);
 }
 .f-org-name{font-size:0.74rem;color:rgba(232,223,200,0.7);line-height:1.4;max-width:90px}
+
+/* ✅ Исправлено: увеличен отступ и добавлена защита от переноса */
 .f-contacts{display:flex;flex-direction:row;gap:2rem;align-items:center;flex-wrap:wrap}
-.f-contact{display:flex;align-items:center;gap:0.6rem;font-size:0.83rem;color:rgba(232,223,200,0.65)}
+.f-contact{display:flex;align-items:center;gap:0.6rem;font-size:0.83rem;color:rgba(232,223,200,0.65);white-space:nowrap}
+
 .f-contact-icon{
   width:28px;height:28px;border:1px solid rgba(201,168,76,0.35);border-radius:4px;
   display:flex;align-items:center;justify-content:center;font-size:0.82rem;flex-shrink:0;
@@ -381,10 +384,19 @@ footer{
 .f-bottom-wrap{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,0.06)}
 .f-bottom{
   max-width:1000px;margin:0 auto;
-  text-align:center;font-size:0.75rem;
-  color:rgba(232,223,200,0.3);
   padding:0.85rem 2rem 1rem;
 }
+.f-bottom-inner{
+  display:flex;align-items:center;justify-content:center;
+  gap:1rem;flex-wrap:wrap;
+  font-size:0.75rem;color:rgba(232,223,200,0.3);
+}
+.f-bottom-logo{opacity:0.55;transition:opacity 0.2s}
+.f-bottom-logo:hover{opacity:1}
+
+.org-logo-link{text-decoration:none;display:block;transition:opacity 0.2s}
+.org-logo-link:hover{opacity:0.8}
+.org-logo-img{padding:0;overflow:hidden}
 
 /* Modal */
 .modal-overlay{position:fixed;inset:0;background:rgba(5,10,25,0.88);z-index:999;display:flex;align-items:center;justify-content:center;padding:2rem}
@@ -398,28 +410,76 @@ footer{
 /* Cosmic tree SVG deco */
 .tree-deco{position:absolute;right:0;top:0;height:100%;width:40%;opacity:0.08;pointer-events:none}
 
-/* Responsive */
+/* ===== RESPONSIVE ===== */
+@media(max-width:1024px){
+  .footer-main{padding:2rem 1.5rem 1rem}
+  .f-contacts{gap:1.5rem}
+}
+
 @media(max-width:900px){
+  /* About */
   .about-inner{grid-template-columns:1fr}
   .about-portrait-col{flex-direction:row;border-right:none;border-bottom:1px solid var(--border);padding:1.25rem 1.5rem}
   .about-deco{display:none}
-  .section-ornament-inner{grid-template-columns:80px 1fr}
+  /* Ornament */
+  .section-ornament-inner{grid-template-columns:70px 1fr}
   .orn-deco{display:none}
+  /* Form */
   .form-row{grid-template-columns:1fr 1fr}
-  .proj-grid{grid-template-columns:1fr}
-  .footer-inner{grid-template-columns:1fr}
+  /* Results */
   .results-grid{grid-template-columns:1fr;text-align:center}
   .donut-wrap{margin:0 auto 1.5rem}
   .result-actions{justify-content:center}
+  /* Related */
+  .proj-grid{grid-template-columns:1fr 1fr}
+  /* Footer */
+  .footer-main{grid-template-columns:1fr;gap:1.5rem}
+  .f-orgs{flex-wrap:wrap;gap:1rem}
+  .f-contacts{flex-wrap:wrap;gap:1.2rem}
 }
+
 @media(max-width:600px){
+  /* Hero */
   .hero-poster{display:none}
   .hero-poster-v{display:block;width:100%;height:100vh;object-fit:cover;object-position:center top}
-  .form-row{grid-template-columns:1fr}
-  .btn-cta{width:100%;justify-content:center}
-  .f-orgs{justify-content:center}
-  .proj-grid{grid-template-columns:1fr}
   .hero-overlay{padding:0 1rem 3rem}
+  .btn-cta{width:100%;justify-content:center}
+  /* About */
+  .about-portrait-col{flex-direction:column;align-items:center;text-align:center}
+  .about-content{padding:1.25rem 1rem}
+  /* Ornament */
+  .section-ornament{padding:1rem}
+  .section-ornament-inner{grid-template-columns:50px 1fr;gap:0.5rem}
+  .orn-content{padding:0 0.75rem}
+  .orn-icon{width:50px;height:50px;font-size:1.2rem}
+  /* Form */
+  .form-row{grid-template-columns:1fr}
+  .reg-header{flex-direction:column;align-items:flex-start;gap:0.4rem}
+  /* Quiz */
+  .quiz-nav{gap:0.5rem}
+  .btn-back{padding:0.6rem 1rem;font-size:0.8rem}
+  .btn-next{padding:0.6rem 1.2rem;font-size:0.85rem}
+  /* Results */
+  .results-grid{gap:1.5rem}
+  .result-actions{flex-direction:column;align-items:stretch}
+  .btn-share,.btn-restart{justify-content:center}
+  /* Related */
+  .proj-grid{grid-template-columns:1fr}
+  /* Footer */
+  .footer-main{padding:1.5rem 1rem 1rem}
+  .f-orgs{justify-content:flex-start;flex-wrap:wrap}
+  .f-org{flex:0 0 auto}
+  .f-org-name{max-width:80px;font-size:0.7rem}
+  .f-contacts{flex-direction:column;align-items:flex-start;gap:1rem}
+  .f-bottom-inner{flex-direction:column;gap:0.4rem}
+}
+
+@media(max-width:400px){
+  .hero-title{font-size:2.6rem}
+  .hero-sub{font-size:0.95rem}
+  .hero-desc{font-size:0.85rem}
+  .org-logo{width:44px;height:44px}
+  .f-org-name{display:none}
 }
 </style>
 </head>
@@ -454,7 +514,7 @@ footer{
     </div>
     <div class="about-content">
       <h2>Кто такой Н. Ф. Фёдоров?</h2>
-      <p>Николай Фёдорович Фёдоров — русский религиозный мыслитель, философ-космист, основатель учения об «Общем деле». Служил библиотекарем Румянцевского музея в Москве, никогда не публиковал своих работ при жизни, но оказал огромное влияние на Толстого, Достоевского, Циолковского и многих других.</p>
+      <p>Николай Фёдорович Фёдоров — русский религиозный мыслитель, философ-космист, основатель учения об «Общем деле». Служил библиотекарем Румянцевского музея в Москве, никогда не публиковал своих работ при жизни, но оказал огромное влияние на Льва Толстого, Фёдора Достоевского, Константина Циолковского и многих других.</p>
       <p>Главная идея Фёдорова: человечество должно объединиться ради победы над смертью и воскрешения всех умерших поколений. Наука, культура и техника — не самоцель, а инструмент этого «Общего дела».</p>
       <a href="http://nffedorov.ru/" target="_blank" class="link-gold">Подробнее о философии Фёдорова →</a>
     </div>
@@ -472,7 +532,6 @@ footer{
     </div>
     <div class="orn-deco">
       <svg width="60" height="80" viewBox="0 0 60 80" opacity="0.35">
-        <!-- Compass rose -->
         <circle cx="30" cy="40" r="20" fill="none" stroke="#C9A84C" stroke-width="0.8"/>
         <circle cx="30" cy="40" r="14" fill="none" stroke="#C9A84C" stroke-width="0.5"/>
         <line x1="30" y1="20" x2="30" y2="60" stroke="#C9A84C" stroke-width="0.8"/>
@@ -480,7 +539,6 @@ footer{
         <polygon points="30,22 32,35 28,35" fill="#C9A84C" opacity="0.7"/>
         <polygon points="30,58 28,45 32,45" fill="#C9A84C" opacity="0.4"/>
         <circle cx="30" cy="40" r="3" fill="#C9A84C" opacity="0.6"/>
-        <!-- tick marks -->
         <line x1="30" y1="20" x2="30" y2="23" stroke="#C9A84C" stroke-width="1"/>
         <line x1="50" y1="40" x2="47" y2="40" stroke="#C9A84C" stroke-width="1"/>
         <line x1="10" y1="40" x2="13" y2="40" stroke="#C9A84C" stroke-width="1"/>
@@ -552,7 +610,6 @@ footer{
 
 <!-- ===== RESULTS ===== -->
 <section id="results" class="hidden">
-  <!-- Decorative tree -->
   <svg class="tree-deco" viewBox="0 0 300 600" fill="none" xmlns="http://www.w3.org/2000/svg">
     <g stroke="#C9A84C" stroke-width="1" opacity="0.6">
       <line x1="150" y1="580" x2="150" y2="350"/>
@@ -568,19 +625,16 @@ footer{
       <line x1="110" y1="300" x2="130" y2="220"/>
       <line x1="190" y1="270" x2="170" y2="190"/>
       <line x1="260" y1="280" x2="280" y2="200"/>
-      <!-- Stars at branch tips -->
       <circle cx="20" cy="220" r="3" fill="#C9A84C"/>
       <circle cx="60" cy="220" r="2" fill="#C9A84C"/>
       <circle cx="90" cy="220" r="3" fill="#C9A84C"/>
       <circle cx="130" cy="220" r="2" fill="#C9A84C"/>
       <circle cx="170" cy="190" r="3" fill="#C9A84C"/>
       <circle cx="280" cy="200" r="2" fill="#C9A84C"/>
-      <!-- Small figures at base -->
       <ellipse cx="120" cy="590" rx="8" ry="4" opacity="0.5"/>
       <ellipse cx="150" cy="590" rx="8" ry="4" opacity="0.5"/>
       <ellipse cx="180" cy="590" rx="8" ry="4" opacity="0.5"/>
     </g>
-    <!-- Golden glow icons along tree -->
     <circle cx="150" cy="530" r="10" fill="none" stroke="#C9A84C" stroke-width="0.8" opacity="0.4"/>
     <text x="150" y="534" text-anchor="middle" fill="#C9A84C" font-size="10" opacity="0.5">★</text>
     <circle cx="80" cy="430" r="8" fill="none" stroke="#C9A84C" stroke-width="0.8" opacity="0.4"/>
@@ -623,7 +677,6 @@ footer{
 
     <div class="proj-card">
       <div class="proj-icon">
-        <!-- Открытая книга с лучом -->
         <svg viewBox="0 0 48 48" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M24 10 C20 10 10 12 6 16 L6 40 C10 37 20 36 24 38 C28 36 38 37 42 40 L42 16 C38 12 28 10 24 10 Z" stroke="#C9A84C" stroke-width="1.4" stroke-linejoin="round"/>
           <line x1="24" y1="10" x2="24" y2="38" stroke="#C9A84C" stroke-width="1.4"/>
@@ -633,7 +686,6 @@ footer{
           <line x1="26" y1="21" x2="38" y2="20" stroke="#C9A84C" stroke-width="0.9" opacity="0.55" stroke-linecap="round"/>
           <line x1="26" y1="26" x2="38" y2="25" stroke="#C9A84C" stroke-width="0.9" opacity="0.55" stroke-linecap="round"/>
           <line x1="26" y1="31" x2="38" y2="30" stroke="#C9A84C" stroke-width="0.9" opacity="0.55" stroke-linecap="round"/>
-          <!-- лучик сверху -->
           <line x1="24" y1="4" x2="24" y2="9" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round" opacity="0.6"/>
           <line x1="20" y1="5.5" x2="22" y2="8" stroke="#C9A84C" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
           <line x1="28" y1="5.5" x2="26" y2="8" stroke="#C9A84C" stroke-width="1" stroke-linecap="round" opacity="0.4"/>
@@ -646,17 +698,13 @@ footer{
 
     <div class="proj-card">
       <div class="proj-icon">
-        <!-- Перо / свиток -->
         <svg viewBox="0 0 48 48" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Свиток -->
           <rect x="10" y="10" width="28" height="32" rx="3" stroke="#C9A84C" stroke-width="1.4"/>
           <ellipse cx="24" cy="10" rx="8" ry="3" stroke="#C9A84C" stroke-width="1.2"/>
           <ellipse cx="24" cy="42" rx="8" ry="3" stroke="#C9A84C" stroke-width="1.2"/>
-          <!-- линии текста -->
           <line x1="15" y1="18" x2="33" y2="18" stroke="#C9A84C" stroke-width="0.9" opacity="0.6" stroke-linecap="round"/>
           <line x1="15" y1="23" x2="33" y2="23" stroke="#C9A84C" stroke-width="0.9" opacity="0.6" stroke-linecap="round"/>
           <line x1="15" y1="28" x2="27" y2="28" stroke="#C9A84C" stroke-width="0.9" opacity="0.6" stroke-linecap="round"/>
-          <!-- звёздочка -->
           <circle cx="35" cy="10" r="4" fill="#0D1732"/>
           <polygon points="35,6.5 35.9,9.1 38.6,9.1 36.4,10.8 37.2,13.5 35,11.8 32.8,13.5 33.6,10.8 31.4,9.1 34.1,9.1" fill="#C9A84C" opacity="0.9"/>
         </svg>
@@ -668,21 +716,15 @@ footer{
 
     <div class="proj-card">
       <div class="proj-icon">
-        <!-- Люди вокруг общего центра -->
         <svg viewBox="0 0 48 48" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- central dot -->
           <circle cx="24" cy="24" r="3.5" fill="#C9A84C" opacity="0.9"/>
-          <!-- connecting lines -->
           <line x1="24" y1="24" x2="24" y2="9"  stroke="#C9A84C" stroke-width="0.9" opacity="0.4" stroke-dasharray="2,2"/>
           <line x1="24" y1="24" x2="38" y2="32" stroke="#C9A84C" stroke-width="0.9" opacity="0.4" stroke-dasharray="2,2"/>
           <line x1="24" y1="24" x2="10" y2="32" stroke="#C9A84C" stroke-width="0.9" opacity="0.4" stroke-dasharray="2,2"/>
-          <!-- person top -->
           <circle cx="24" cy="6"  r="3" stroke="#C9A84C" stroke-width="1.2"/>
           <path d="M19 14 Q24 11 29 14 L29 19 L19 19 Z" stroke="#C9A84C" stroke-width="1.1" stroke-linejoin="round"/>
-          <!-- person right -->
           <circle cx="41" cy="35" r="3" stroke="#C9A84C" stroke-width="1.2"/>
           <path d="M36 43 Q41 40 46 43 L46 48 L36 48 Z" stroke="#C9A84C" stroke-width="1.1" stroke-linejoin="round"/>
-          <!-- person left -->
           <circle cx="7"  cy="35" r="3" stroke="#C9A84C" stroke-width="1.2"/>
           <path d="M2  43 Q7  40 12 43 L12 48 L2  48 Z" stroke="#C9A84C" stroke-width="1.1" stroke-linejoin="round"/>
         </svg>
@@ -704,77 +746,22 @@ footer{
     <div class="footer-col">
       <h4>Организаторы</h4>
       <div class="f-orgs">
-
-        <!-- ВОИР -->
         <div class="f-org">
-          <div class="org-logo">
-            <svg viewBox="0 0 44 44" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="22" cy="22" r="20" stroke="#C9A84C" stroke-width="1.2"/>
-              <!-- gear teeth -->
-              <circle cx="22" cy="22" r="10" stroke="#C9A84C" stroke-width="1.2"/>
-              <circle cx="22" cy="22" r="4"  stroke="#C9A84C" stroke-width="1"/>
-              <line x1="22" y1="9"  x2="22" y2="12" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
-              <line x1="22" y1="32" x2="22" y2="35" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
-              <line x1="9"  y1="22" x2="12" y2="22" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
-              <line x1="32" y1="22" x2="35" y2="22" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
-              <line x1="13.1" y1="13.1" x2="15.2" y2="15.2" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
-              <line x1="28.8" y1="28.8" x2="30.9" y2="30.9" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
-              <line x1="30.9" y1="13.1" x2="28.8" y2="15.2" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
-              <line x1="15.2" y1="28.8" x2="13.1" y2="30.9" stroke="#C9A84C" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <span class="f-org-name">ВОИР</span>
-        </div>
-
-        <!-- Фонд Наука за продление жизни -->
-        <div class="f-org">
-          <div class="org-logo">
-            <svg viewBox="0 0 44 44" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- tree trunk -->
-              <line x1="22" y1="38" x2="22" y2="22" stroke="#C9A84C" stroke-width="1.8" stroke-linecap="round"/>
-              <!-- roots -->
-              <line x1="22" y1="36" x2="16" y2="40" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/>
-              <line x1="22" y1="36" x2="28" y2="40" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/>
-              <!-- branches -->
-              <line x1="22" y1="22" x2="12" y2="14" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round"/>
-              <line x1="22" y1="22" x2="32" y2="14" stroke="#C9A84C" stroke-width="1.4" stroke-linecap="round"/>
-              <line x1="22" y1="26" x2="14" y2="20" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/>
-              <line x1="22" y1="26" x2="30" y2="20" stroke="#C9A84C" stroke-width="1.2" stroke-linecap="round"/>
-              <!-- leaves/circles -->
-              <circle cx="11" cy="12" r="4" stroke="#C9A84C" stroke-width="1"/>
-              <circle cx="33" cy="12" r="4" stroke="#C9A84C" stroke-width="1"/>
-              <circle cx="22" cy="8"  r="5" stroke="#C9A84C" stroke-width="1"/>
-              <circle cx="13" cy="18" r="3" stroke="#C9A84C" stroke-width="1"/>
-              <circle cx="31" cy="18" r="3" stroke="#C9A84C" stroke-width="1"/>
-            </svg>
-          </div>
+          <a href="https://scienceagainstaging.com" target="_blank" rel="noopener" class="org-logo-link" title="Фонд «Наука за продление жизни»">
+            <div class="org-logo org-logo-img">
+              <img src="1.png" alt="Фонд Наука за продление жизни" style="width:100%;height:100%;object-fit:contain;border-radius:50%;background:#fff;">
+            </div>
+          </a>
           <span class="f-org-name">Фонд «Наука за продление жизни»</span>
         </div>
-
-        <!-- Тюменское ВОИР -->
         <div class="f-org">
-          <div class="org-logo">
-            <svg viewBox="0 0 44 44" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- compass outer -->
-              <circle cx="22" cy="22" r="18" stroke="#C9A84C" stroke-width="1.2"/>
-              <circle cx="22" cy="22" r="3"  fill="#C9A84C"/>
-              <!-- N arrow up -->
-              <polygon points="22,5 19,18 22,15 25,18" fill="#C9A84C"/>
-              <!-- S arrow down -->
-              <polygon points="22,39 25,26 22,29 19,26" fill="#C9A84C" opacity="0.45"/>
-              <!-- W & E ticks -->
-              <line x1="4"  y1="22" x2="8"  y2="22" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
-              <line x1="36" y1="22" x2="40" y2="22" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round"/>
-              <!-- diagonal ticks -->
-              <line x1="9.5"  y1="9.5"  x2="11.9" y2="11.9" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
-              <line x1="32.1" y1="32.1" x2="34.5" y2="34.5" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
-              <line x1="34.5" y1="9.5"  x2="32.1" y2="11.9" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
-              <line x1="11.9" y1="32.1" x2="9.5"  y2="34.5" stroke="#C9A84C" stroke-width="1" opacity="0.5"/>
-            </svg>
-          </div>
-          <span class="f-org-name">Тюменское отделение ВОИР</span>
+          <a href="https://www.voir72.ru" target="_blank" rel="noopener" class="org-logo-link" title="Тюменский областной совет ВОИР">
+            <div class="org-logo org-logo-img">
+              <img src="2.png" alt="ВОИР" style="width:100%;height:100%;object-fit:contain;background:#fff;border-radius:50%;">
+            </div>
+          </a>
+          <span class="f-org-name">Тюменский областной совет ВОИР</span>
         </div>
-
       </div>
     </div>
     <div class="footer-col">
@@ -782,17 +769,25 @@ footer{
       <div class="f-contacts">
         <div class="f-contact">
           <div class="f-contact-icon">✉</div>
-          <a href="mailto:info@fedorov.readings.ru">info@fedorov.readings.ru</a>
+          <a href="mailto:politreyd@bk.ru">politreyd@bk.ru</a>
         </div>
         <div class="f-contact">
           <div class="f-contact-icon">✆</div>
-          <a href="tel:+73452567890">+7 (3452) 56-78-90</a>
+          <a href="tel:+73452381814">8 (3452) 38-18-14</a>
+        </div>
+        <div class="f-contact">
+          <div class="f-contact-icon">📄</div>
+          <a href="polozhenie.pdf" target="_blank" download>Скачать положение</a>
         </div>
       </div>
     </div>
   </div>
   <div class="f-bottom-wrap">
-    <div class="f-bottom">© 2025 Проект «Что ответим Фёдорову?»</div>
+    <div class="f-bottom">
+      <div class="f-bottom-inner">
+        <span>© 2026 Проект «Что ответим Фёдорову?»</span>
+      </div>
+    </div>
   </div>
 </footer>
 
@@ -895,7 +890,6 @@ function showResults(){
   setTimeout(()=>drawDonut(pct),150);
   window._rp=pct;window._rl=cat.l;
 
-  // Отправляем результаты на сервер
   const name = document.getElementById('name')?.value.trim();
   const city = document.getElementById('city')?.value.trim();
   const contact = document.getElementById('contact')?.value.trim();
