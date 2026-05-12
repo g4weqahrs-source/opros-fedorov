@@ -19,43 +19,18 @@ body{font-family:'Raleway',sans-serif;font-size:15px;line-height:1.7;background:
 h1,h2,h3,h4{font-family:'Playfair Display',serif}
 
 /* ===== HERO ===== */
-#hero{
-  position:relative;overflow:hidden;
-  background:var(--navy-mid);
-  min-height:60vh;
-}
-.hero-poster{
-  width:100%;height:60vh;
-  object-fit:cover;object-position:center top;
-  display:block;
-}
+#hero{position:relative;overflow:hidden;background:var(--navy-mid);min-height:60vh}
+.hero-poster{width:100%;height:60vh;object-fit:cover;object-position:center top;display:block}
 .hero-poster-v{display:none}
-.hero-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(8,14,30,0.25) 0%,rgba(8,14,30,0.5) 60%,rgba(8,14,30,0.85) 100%);
-  display:flex;flex-direction:column;align-items:center;justify-content:center;
-  padding:0 1.5rem 2rem;text-align:center;
-}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,14,30,0.25) 0%,rgba(8,14,30,0.5) 60%,rgba(8,14,30,0.85) 100%);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 1.5rem 2rem;text-align:center}
 .hero-eyebrow{font-size:0.7rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(201,168,76,0.8);margin-bottom:0.5rem}
-.hero-title{
-  font-size:clamp(3rem,8vw,6.5rem);font-weight:900;line-height:1.0;
-  background:linear-gradient(135deg,var(--gold-l) 0%,var(--gold) 50%,#A07820 100%);
-  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
-  margin-bottom:1rem;text-shadow:none;
-}
+.hero-title{font-size:clamp(3rem,8vw,6.5rem);font-weight:900;line-height:1.0;background:linear-gradient(135deg,var(--gold-l) 0%,var(--gold) 50%,#A07820 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:1rem;text-shadow:none}
 .hero-sub{font-size:clamp(1rem,2.5vw,1.25rem);color:#E8DFC8;font-weight:300;margin-bottom:0.5rem;max-width:600px}
 .hero-desc{font-size:0.95rem;color:rgba(232,223,200,0.75);margin-bottom:2rem}
 .hero-meta{display:flex;gap:1.5rem;justify-content:center;margin-bottom:2rem;flex-wrap:wrap}
 .hero-meta span{font-size:0.75rem;color:rgba(232,223,200,0.6);display:flex;align-items:center;gap:0.35rem}
 .hero-meta span::before{content:'◇';color:var(--gold);font-size:0.5rem}
-.btn-cta{
-  display:inline-flex;align-items:center;gap:0.6rem;
-  background:linear-gradient(135deg,var(--gold) 0%,#A07820 100%);
-  color:var(--navy-mid);font-family:'Raleway',sans-serif;
-  font-weight:700;font-size:1rem;letter-spacing:0.05em;
-  padding:0.9rem 2.5rem;border:none;cursor:pointer;
-  border-radius:3px;text-decoration:none;transition:all 0.3s;
-}
+.btn-cta{display:inline-flex;align-items:center;gap:0.6rem;background:linear-gradient(135deg,var(--gold) 0%,#A07820 100%);color:var(--navy-mid);font-family:'Raleway',sans-serif;font-weight:700;font-size:1rem;letter-spacing:0.05em;padding:0.9rem 2.5rem;border:none;cursor:pointer;border-radius:3px;text-decoration:none;transition:all 0.3s}
 .btn-cta:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(201,168,76,0.45)}
 .btn-cta::after{content:'→';font-size:1rem;transition:transform 0.3s}
 .btn-cta:hover::after{transform:translateX(4px)}
@@ -64,27 +39,10 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif}
 .light-section{background:var(--bg-card);color:var(--text-dark)}
 
 /* ===== ABOUT ===== */
-#about{
-  background:#fff;
-  border-bottom:1px solid var(--border);
-}
-.about-inner{
-  max-width:960px;margin:0 auto;
-  display:grid;grid-template-columns:140px 1fr auto;gap:0;
-  align-items:stretch;
-}
-.about-portrait-col{
-  padding:2rem 1.5rem;
-  display:flex;flex-direction:column;align-items:center;gap:1rem;
-  border-right:1px solid var(--border);
-}
-.portrait-circle{
-  width:96px;height:96px;border-radius:50%;
-  overflow:hidden;
-  border:2px solid var(--gold);
-  box-shadow:0 0 0 4px rgba(201,168,76,0.12), 0 0 20px rgba(201,168,76,0.15);
-  flex-shrink:0;
-}
+#about{background:#fff;border-bottom:1px solid var(--border)}
+.about-inner{max-width:960px;margin:0 auto;display:grid;grid-template-columns:140px 1fr auto;gap:0;align-items:stretch}
+.about-portrait-col{padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;gap:1rem;border-right:1px solid var(--border)}
+.portrait-circle{width:96px;height:96px;border-radius:50%;overflow:hidden;border:2px solid var(--gold);box-shadow:0 0 0 4px rgba(201,168,76,0.12), 0 0 20px rgba(201,168,76,0.15);flex-shrink:0}
 .portrait-circle img{width:100%;height:100%;object-fit:cover;object-position:top}
 .portrait-label{font-size:0.72rem;color:var(--text-muted);text-align:center;line-height:1.5}
 .portrait-label small{font-size:0.65rem;color:var(--gold);letter-spacing:0.05em}
@@ -93,56 +51,28 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif}
 .about-content p{font-size:0.9rem;color:var(--text-mid);line-height:1.75;margin-bottom:0.5rem}
 .link-gold{color:var(--gold);text-decoration:none;font-weight:600;font-size:0.85rem}
 .link-gold:hover{text-decoration:underline}
-.about-deco{
-  padding:2rem 1.5rem;
-  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;
-  border-left:1px solid var(--border);
-  color:rgba(201,168,76,0.35);font-size:1.5rem;
-}
+.about-deco{padding:2rem 1.5rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0.5rem;border-left:1px solid var(--border);color:rgba(201,168,76,0.35);font-size:1.5rem}
 
 /* Divider ornament */
-.section-ornament{
-  background:#f7f5f0;
-  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
-  padding:1.5rem 2rem;
-  display:flex;align-items:center;
-}
+.section-ornament{background:#f7f5f0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:1.5rem 2rem;display:flex;align-items:center}
 .section-ornament-inner{max-width:960px;margin:0 auto;width:100%;display:grid;grid-template-columns:140px 1fr auto;gap:0;align-items:center}
-.orn-icon{
-  width:70px;height:70px;border-radius:50%;
-  border:1px solid rgba(201,168,76,0.4);
-  display:flex;align-items:center;justify-content:center;
-  font-size:1.6rem;color:var(--gold);background:#fff;
-  margin:0 auto;
-}
+.orn-icon{width:70px;height:70px;border-radius:50%;border:1px solid rgba(201,168,76,0.4);display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:var(--gold);background:#fff;margin:0 auto}
 .orn-content{padding:0 2rem}
 .orn-content h2{font-size:1.3rem;color:var(--text-dark);margin-bottom:0.5rem}
 .orn-content p{font-size:0.88rem;color:var(--text-mid);line-height:1.7}
 .orn-deco{padding:0 1.5rem;color:rgba(201,168,76,0.3);font-size:1.2rem;text-align:center}
 
 /* ===== REGISTRATION ===== */
-#registration{
-  background:#fff;
-  padding:2rem;
-  border-bottom:1px solid var(--border);
-}
+#registration{background:#fff;padding:2rem;border-bottom:1px solid var(--border)}
 .reg-inner{max-width:960px;margin:0 auto}
-.reg-header{
-  display:flex;justify-content:space-between;align-items:center;
-  margin-bottom:1.25rem;
-}
+.reg-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:1.25rem}
 .reg-title{font-size:1.2rem;color:var(--text-dark);font-family:'Raleway',sans-serif;font-weight:600}
 .anon-note{font-size:0.78rem;color:var(--text-muted);display:flex;align-items:center;gap:0.4rem}
 .anon-note::before{content:'◎';color:var(--text-muted);font-size:0.65rem}
 .form-row{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:1rem}
 .form-group{display:flex;flex-direction:column;gap:0.3rem}
 .form-group label{font-size:0.75rem;color:var(--text-muted);font-weight:500}
-.form-group input,.form-group select{
-  border:1px solid #D8D4CC;border-radius:3px;
-  padding:0.6rem 0.8rem;font-family:'Raleway',sans-serif;
-  font-size:0.85rem;color:var(--text-dark);background:#fff;
-  outline:none;transition:border-color 0.25s;
-}
+.form-group input,.form-group select{border:1px solid #D8D4CC;border-radius:3px;padding:0.6rem 0.8rem;font-family:'Raleway',sans-serif;font-size:0.85rem;color:var(--text-dark);background:#fff;outline:none;transition:border-color 0.25s}
 .form-group input::placeholder{color:#BBB;font-size:0.82rem}
 .form-group input:focus,.form-group select:focus{border-color:var(--gold)}
 .form-group select option{background:#fff}
@@ -152,94 +82,40 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif}
 .checkbox-row a{color:var(--gold);text-decoration:none}
 .form-err{color:#D64545;font-size:0.78rem;margin-top:0.2rem}
 .hidden{display:none!important}
-.btn-start{
-  background:linear-gradient(135deg,var(--gold) 0%,#A07820 100%);
-  color:var(--navy-mid);font-family:'Raleway',sans-serif;
-  font-weight:700;font-size:0.9rem;letter-spacing:0.05em;
-  padding:0.75rem 2rem;border:none;cursor:pointer;border-radius:3px;
-  transition:all 0.3s;
-}
+.btn-start{background:linear-gradient(135deg,var(--gold) 0%,#A07820 100%);color:var(--navy-mid);font-family:'Raleway',sans-serif;font-weight:700;font-size:0.9rem;letter-spacing:0.05em;padding:0.75rem 2rem;border:none;cursor:pointer;border-radius:3px;transition:all 0.3s}
 .btn-start:hover{transform:translateY(-1px);box-shadow:0 5px 18px rgba(201,168,76,0.4)}
 
 /* ===== QUIZ ===== */
-#quiz{
-  background:#fff;
-  padding:2rem;
-  border-bottom:1px solid var(--border);
-}
+#quiz{background:#fff;padding:2rem;border-bottom:1px solid var(--border)}
 .quiz-inner{max-width:900px;margin:0 auto}
 .quiz-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:0.4rem}
 .q-label{font-size:0.8rem;color:var(--text-muted);font-weight:500}
 .q-pct{font-size:0.8rem;color:var(--text-dark);font-weight:700}
-.prog-track{
-  width:100%;height:6px;background:#EEEAE0;border-radius:3px;
-  margin-bottom:2.5rem;overflow:hidden;
-}
-.prog-fill{
-  height:100%;border-radius:3px;
-  background:linear-gradient(90deg,var(--gold-d),var(--gold));
-  transition:width 0.5s ease;
-}
+.prog-track{width:100%;height:6px;background:#EEEAE0;border-radius:3px;margin-bottom:2.5rem;overflow:hidden}
+.prog-fill{height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gold-d),var(--gold));transition:width 0.5s ease}
 .q-block{animation:fadeUp 0.35s ease}
 @keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.q-text{
-  font-family:'Playfair Display',serif;
-  font-size:clamp(1.1rem,2.5vw,1.4rem);
-  font-weight:700;color:var(--text-dark);
-  text-align:center;margin-bottom:2rem;line-height:1.4;
-}
+.q-text{font-family:'Playfair Display',serif;font-size:clamp(1.1rem,2.5vw,1.4rem);font-weight:700;color:var(--text-dark);text-align:center;margin-bottom:2rem;line-height:1.4}
 .options{display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1rem}
-.opt-lbl{
-  display:flex;align-items:flex-start;gap:0.9rem;
-  padding:0.85rem 1.1rem;
-  border:1px solid #DDD9CE;border-radius:3px;
-  cursor:pointer;transition:all 0.2s;background:#FAFAF8;
-}
+.opt-lbl{display:flex;align-items:flex-start;gap:0.9rem;padding:0.85rem 1.1rem;border:1px solid #DDD9CE;border-radius:3px;cursor:pointer;transition:all 0.2s;background:#FAFAF8}
 .opt-lbl:hover{border-color:#C9A84C;background:#FDF9F2}
 .opt-lbl.sel{border-color:var(--gold);background:#FDF5E4}
 .opt-lbl input{display:none}
-.opt-radio{
-  width:18px;height:18px;border-radius:50%;
-  border:1.5px solid #CCC;flex-shrink:0;margin-top:2px;
-  transition:all 0.2s;position:relative;
-}
+.opt-radio{width:18px;height:18px;border-radius:50%;border:1.5px solid #CCC;flex-shrink:0;margin-top:2px;transition:all 0.2s;position:relative}
 .opt-lbl.sel .opt-radio{border-color:var(--gold);background:var(--gold)}
-.opt-lbl.sel .opt-radio::after{
-  content:'';position:absolute;top:50%;left:50%;
-  transform:translate(-50%,-50%);
-  width:7px;height:7px;border-radius:50%;background:#fff;
-}
+.opt-lbl.sel .opt-radio::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:7px;height:7px;border-radius:50%;background:#fff}
 .opt-txt{font-size:0.88rem;color:var(--text-mid);line-height:1.6}
 .hint{font-size:0.78rem;color:var(--text-muted);font-style:italic;margin-bottom:2rem;text-align:center}
 .quiz-nav{display:flex;justify-content:space-between;align-items:center}
-.btn-back{
-  display:flex;align-items:center;gap:0.5rem;
-  padding:0.65rem 1.4rem;background:#fff;
-  border:1px solid #D0CCBF;color:var(--text-muted);
-  font-family:'Raleway',sans-serif;font-weight:500;font-size:0.85rem;
-  cursor:pointer;border-radius:3px;transition:all 0.25s;
-}
+.btn-back{display:flex;align-items:center;gap:0.5rem;padding:0.65rem 1.4rem;background:#fff;border:1px solid #D0CCBF;color:var(--text-muted);font-family:'Raleway',sans-serif;font-weight:500;font-size:0.85rem;cursor:pointer;border-radius:3px;transition:all 0.25s}
 .btn-back:hover{border-color:#999;color:var(--text-dark)}
-.btn-next{
-  padding:0.65rem 2rem;
-  background:linear-gradient(135deg,var(--gold) 0%,#A07820 100%);
-  border:none;color:var(--navy-mid);
-  font-family:'Raleway',sans-serif;font-weight:700;font-size:0.9rem;
-  cursor:pointer;border-radius:3px;transition:all 0.3s;
-}
+.btn-next{padding:0.65rem 2rem;background:linear-gradient(135deg,var(--gold) 0%,#A07820 100%);border:none;color:var(--navy-mid);font-family:'Raleway',sans-serif;font-weight:700;font-size:0.9rem;cursor:pointer;border-radius:3px;transition:all 0.3s}
 .btn-next:hover{transform:translateY(-1px);box-shadow:0 5px 18px rgba(201,168,76,0.4)}
 .btn-next:disabled{opacity:0.35;cursor:not-allowed;transform:none;box-shadow:none}
 
 /* ===== RESULTS ===== */
-#results{
-  background:var(--navy);
-  padding:4rem 2rem;
-  position:relative;overflow:hidden;
-}
-.results-bg{
-  position:absolute;right:0;top:0;bottom:0;width:45%;
-  opacity:0.12;background-size:cover;background-position:center;
-}
+#results{background:var(--navy);padding:4rem 2rem;position:relative;overflow:hidden}
+.results-bg{position:absolute;right:0;top:0;bottom:0;width:45%;opacity:0.12;background-size:cover;background-position:center}
 .results-inner{max-width:900px;margin:0 auto;position:relative;z-index:1}
 .results-grid{display:grid;grid-template-columns:220px 1fr;gap:3rem;align-items:center}
 .donut-wrap{position:relative;width:180px;height:180px;margin:0 auto}
@@ -252,148 +128,49 @@ h1,h2,h3,h4{font-family:'Playfair Display',serif}
 .result-desc{font-size:0.88rem;color:rgba(232,223,200,0.8);line-height:1.8;margin-bottom:2rem}
 .result-desc strong{color:var(--gold-l)}
 .result-actions{display:flex;gap:0.75rem;flex-wrap:wrap}
-.btn-share{
-  display:flex;align-items:center;gap:0.45rem;
-  padding:0.65rem 1.4rem;
-  background:rgba(201,168,76,0.12);
-  border:1px solid rgba(201,168,76,0.45);
-  color:var(--gold);font-family:'Raleway',sans-serif;
-  font-weight:600;font-size:0.82rem;cursor:pointer;
-  border-radius:3px;transition:all 0.25s;
-}
+.btn-share{display:flex;align-items:center;gap:0.45rem;padding:0.65rem 1.4rem;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.45);color:var(--gold);font-family:'Raleway',sans-serif;font-weight:600;font-size:0.82rem;cursor:pointer;border-radius:3px;transition:all 0.25s}
 .btn-share:hover{background:rgba(201,168,76,0.22)}
-.btn-restart{
-  display:flex;align-items:center;gap:0.45rem;
-  padding:0.65rem 1.4rem;
-  background:rgba(255,255,255,0.06);
-  border:1px solid rgba(255,255,255,0.2);
-  color:rgba(232,223,200,0.7);font-family:'Raleway',sans-serif;
-  font-weight:600;font-size:0.82rem;cursor:pointer;
-  border-radius:3px;transition:all 0.25s;
-}
+.btn-restart{display:flex;align-items:center;gap:0.45rem;padding:0.65rem 1.4rem;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.2);color:rgba(232,223,200,0.7);font-family:'Raleway',sans-serif;font-weight:600;font-size:0.82rem;cursor:pointer;border-radius:3px;transition:all 0.25s}
 .btn-restart:hover{border-color:rgba(255,255,255,0.4);color:#E8DFC8}
 
 /* ===== RELATED ===== */
-#related{
-  background:var(--navy);
-  padding:3.5rem 2rem;
-  border-top:1px solid rgba(255,255,255,0.06);
-}
-.related-header{
-  display:flex;align-items:center;gap:1.5rem;
-  max-width:960px;margin:0 auto 2.5rem;
-  color:rgba(232,223,200,0.6);font-size:0.85rem;
-}
-.related-header::before,.related-header::after{
-  content:'';flex:1;height:1px;
-  background:linear-gradient(90deg,transparent,rgba(201,168,76,0.25));
-}
+#related{background:var(--navy);padding:3.5rem 2rem;border-top:1px solid rgba(255,255,255,0.06)}
+.related-header{display:flex;align-items:center;gap:1.5rem;max-width:960px;margin:0 auto 2.5rem;color:rgba(232,223,200,0.6);font-size:0.85rem}
+.related-header::before,.related-header::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.25))}
 .related-header::after{background:linear-gradient(270deg,transparent,rgba(201,168,76,0.25))}
 .related-title{white-space:nowrap;display:flex;align-items:center;gap:0.5rem;color:rgba(232,223,200,0.7)}
 .proj-grid{max-width:960px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem}
-.proj-card{
-  background:linear-gradient(160deg,#111E3A 0%,#0D1630 100%);
-  border:1px solid rgba(201,168,76,0.12);
-  padding:1.75rem;border-radius:4px;
-  transition:all 0.3s;display:flex;flex-direction:column;gap:0.85rem;
-  position:relative;overflow:hidden;
-}
-.proj-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4),transparent);
-  opacity:0;transition:opacity 0.3s;
-}
+.proj-card{background:linear-gradient(160deg,#111E3A 0%,#0D1630 100%);border:1px solid rgba(201,168,76,0.12);padding:1.75rem;border-radius:4px;transition:all 0.3s;display:flex;flex-direction:column;gap:0.85rem;position:relative;overflow:hidden}
+.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(201,168,76,0.4),transparent);opacity:0;transition:opacity 0.3s}
 .proj-card:hover{border-color:rgba(201,168,76,0.3);transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,0.3)}
 .proj-card:hover::before{opacity:1}
-.proj-icon{
-  width:56px;height:56px;border-radius:50%;
-  border:1.5px solid rgba(201,168,76,0.45);
-  display:flex;align-items:center;justify-content:center;
-  background:rgba(201,168,76,0.06);
-  box-shadow:0 0 18px rgba(201,168,76,0.1), inset 0 0 12px rgba(201,168,76,0.05);
-  flex-shrink:0;
-  transition:all 0.3s;
-}
-.proj-card:hover .proj-icon{
-  border-color:rgba(201,168,76,0.8);
-  background:rgba(201,168,76,0.1);
-  box-shadow:0 0 24px rgba(201,168,76,0.25);
-}
+.proj-icon{width:56px;height:56px;border-radius:50%;border:1.5px solid rgba(201,168,76,0.45);display:flex;align-items:center;justify-content:center;background:rgba(201,168,76,0.06);box-shadow:0 0 18px rgba(201,168,76,0.1), inset 0 0 12px rgba(201,168,76,0.05);flex-shrink:0;transition:all 0.3s}
+.proj-card:hover .proj-icon{border-color:rgba(201,168,76,0.8);background:rgba(201,168,76,0.1);box-shadow:0 0 24px rgba(201,168,76,0.25)}
 .proj-card h3{font-size:1rem;color:var(--gold);line-height:1.35;margin-top:0.25rem}
 .proj-card p{font-size:0.82rem;color:rgba(232,223,200,0.6);line-height:1.7;flex:1}
-.btn-proj{
-  display:inline-flex;align-items:center;gap:0.3rem;
-  font-size:0.8rem;color:rgba(201,168,76,0.65);text-decoration:none;
-  font-weight:600;border-bottom:1px solid transparent;transition:all 0.2s;
-  margin-top:0.25rem;
-}
+.btn-proj{display:inline-flex;align-items:center;gap:0.3rem;font-size:0.8rem;color:rgba(201,168,76,0.65);text-decoration:none;font-weight:600;border-bottom:1px solid transparent;transition:all 0.2s;margin-top:0.25rem}
 .btn-proj:hover{color:var(--gold);border-color:var(--gold)}
 
 /* ===== FOOTER ===== */
-footer{
-  position:relative;overflow:hidden;
-  background:#071020;
-  border-top:1px solid rgba(201,168,76,0.15);
-  padding:0;
-}
-.footer-bg{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;object-position:center bottom;
-  pointer-events:none;opacity:1;
-}
-.footer-bg-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to bottom,rgba(5,12,28,0.55) 0%,rgba(5,12,28,0.2) 60%,rgba(5,12,28,0.45) 100%);
-}
-.footer-main{
-  position:relative;z-index:1;
-  max-width:1000px;margin:0 auto;
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:2rem;padding:2rem 2.5rem 1rem;
-  align-items:start;
-}
-.footer-col h4{
-  font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;
-  color:rgba(232,223,200,0.5);margin-bottom:1rem;
-  font-family:'Raleway',sans-serif;font-weight:500;
-}
+footer{position:relative;overflow:hidden;background:#071020;border-top:1px solid rgba(201,168,76,0.15);padding:0}
+.footer-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center bottom;pointer-events:none;opacity:1}
+.footer-bg-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(5,12,28,0.55) 0%,rgba(5,12,28,0.2) 60%,rgba(5,12,28,0.45) 100%)}
+.footer-main{position:relative;z-index:1;max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:2rem;padding:2rem 2.5rem 1rem;align-items:start}
+.footer-col h4{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(232,223,200,0.5);margin-bottom:1rem;font-family:'Raleway',sans-serif;font-weight:500}
 .f-orgs{display:flex;gap:1.25rem;align-items:center;flex-wrap:nowrap}
 .f-org{display:flex;align-items:center;gap:0.7rem}
-.org-logo{
-  width:52px;height:52px;border-radius:50%;
-  border:1.5px solid rgba(201,168,76,0.55);
-  display:flex;align-items:center;justify-content:center;
-  font-size:0.55rem;color:var(--gold);font-weight:700;font-family:'Raleway',sans-serif;
-  text-align:center;line-height:1.2;padding:6px;
-  background:rgba(10,20,45,0.6);flex-shrink:0;
-  box-shadow:0 0 14px rgba(201,168,76,0.12);
-}
+.org-logo{width:52px;height:52px;border-radius:50%;border:1.5px solid rgba(201,168,76,0.55);display:flex;align-items:center;justify-content:center;font-size:0.55rem;color:var(--gold);font-weight:700;font-family:'Raleway',sans-serif;text-align:center;line-height:1.2;padding:6px;background:rgba(10,20,45,0.6);flex-shrink:0;box-shadow:0 0 14px rgba(201,168,76,0.12)}
 .f-org-name{font-size:0.74rem;color:rgba(232,223,200,0.7);line-height:1.4;max-width:90px}
-
-/* ✅ Исправлено: увеличен отступ и добавлена защита от переноса */
 .f-contacts{display:flex;flex-direction:row;gap:2rem;align-items:center;flex-wrap:wrap}
 .f-contact{display:flex;align-items:center;gap:0.6rem;font-size:0.83rem;color:rgba(232,223,200,0.65);white-space:nowrap}
-
-.f-contact-icon{
-  width:28px;height:28px;border:1px solid rgba(201,168,76,0.35);border-radius:4px;
-  display:flex;align-items:center;justify-content:center;font-size:0.82rem;flex-shrink:0;
-  background:rgba(10,20,45,0.5);
-}
+.f-contact-icon{width:28px;height:28px;border:1px solid rgba(201,168,76,0.35);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.82rem;flex-shrink:0;background:rgba(10,20,45,0.5)}
 .f-contact a{color:rgba(232,223,200,0.7);text-decoration:none;transition:color 0.2s}
 .f-contact a:hover{color:var(--gold)}
 .f-bottom-wrap{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,0.06)}
-.f-bottom{
-  max-width:1000px;margin:0 auto;
-  padding:0.85rem 2rem 1rem;
-}
-.f-bottom-inner{
-  display:flex;align-items:center;justify-content:center;
-  gap:1rem;flex-wrap:wrap;
-  font-size:0.75rem;color:rgba(232,223,200,0.3);
-}
+.f-bottom{max-width:1000px;margin:0 auto;padding:0.85rem 2rem 1rem}
+.f-bottom-inner{display:flex;align-items:center;justify-content:center;gap:1rem;flex-wrap:wrap;font-size:0.75rem;color:rgba(232,223,200,0.3)}
 .f-bottom-logo{opacity:0.55;transition:opacity 0.2s}
 .f-bottom-logo:hover{opacity:1}
-
 .org-logo-link{text-decoration:none;display:block;transition:opacity 0.2s}
 .org-logo-link:hover{opacity:0.8}
 .org-logo-img{padding:0;overflow:hidden}
@@ -411,76 +188,10 @@ footer{
 .tree-deco{position:absolute;right:0;top:0;height:100%;width:40%;opacity:0.08;pointer-events:none}
 
 /* ===== RESPONSIVE ===== */
-@media(max-width:1024px){
-  .footer-main{padding:2rem 1.5rem 1rem}
-  .f-contacts{gap:1.5rem}
-}
-
-@media(max-width:900px){
-  /* About */
-  .about-inner{grid-template-columns:1fr}
-  .about-portrait-col{flex-direction:row;border-right:none;border-bottom:1px solid var(--border);padding:1.25rem 1.5rem}
-  .about-deco{display:none}
-  /* Ornament */
-  .section-ornament-inner{grid-template-columns:70px 1fr}
-  .orn-deco{display:none}
-  /* Form */
-  .form-row{grid-template-columns:1fr 1fr}
-  /* Results */
-  .results-grid{grid-template-columns:1fr;text-align:center}
-  .donut-wrap{margin:0 auto 1.5rem}
-  .result-actions{justify-content:center}
-  /* Related */
-  .proj-grid{grid-template-columns:1fr 1fr}
-  /* Footer */
-  .footer-main{grid-template-columns:1fr;gap:1.5rem}
-  .f-orgs{flex-wrap:wrap;gap:1rem}
-  .f-contacts{flex-wrap:wrap;gap:1.2rem}
-}
-
-@media(max-width:600px){
-  /* Hero */
-  .hero-poster{display:none}
-  .hero-poster-v{display:block;width:100%;height:100vh;object-fit:cover;object-position:center top}
-  .hero-overlay{padding:0 1rem 3rem}
-  .btn-cta{width:100%;justify-content:center}
-  /* About */
-  .about-portrait-col{flex-direction:column;align-items:center;text-align:center}
-  .about-content{padding:1.25rem 1rem}
-  /* Ornament */
-  .section-ornament{padding:1rem}
-  .section-ornament-inner{grid-template-columns:50px 1fr;gap:0.5rem}
-  .orn-content{padding:0 0.75rem}
-  .orn-icon{width:50px;height:50px;font-size:1.2rem}
-  /* Form */
-  .form-row{grid-template-columns:1fr}
-  .reg-header{flex-direction:column;align-items:flex-start;gap:0.4rem}
-  /* Quiz */
-  .quiz-nav{gap:0.5rem}
-  .btn-back{padding:0.6rem 1rem;font-size:0.8rem}
-  .btn-next{padding:0.6rem 1.2rem;font-size:0.85rem}
-  /* Results */
-  .results-grid{gap:1.5rem}
-  .result-actions{flex-direction:column;align-items:stretch}
-  .btn-share,.btn-restart{justify-content:center}
-  /* Related */
-  .proj-grid{grid-template-columns:1fr}
-  /* Footer */
-  .footer-main{padding:1.5rem 1rem 1rem}
-  .f-orgs{justify-content:flex-start;flex-wrap:wrap}
-  .f-org{flex:0 0 auto}
-  .f-org-name{max-width:80px;font-size:0.7rem}
-  .f-contacts{flex-direction:column;align-items:flex-start;gap:1rem}
-  .f-bottom-inner{flex-direction:column;gap:0.4rem}
-}
-
-@media(max-width:400px){
-  .hero-title{font-size:2.6rem}
-  .hero-sub{font-size:0.95rem}
-  .hero-desc{font-size:0.85rem}
-  .org-logo{width:44px;height:44px}
-  .f-org-name{display:none}
-}
+@media(max-width:1024px){.footer-main{padding:2rem 1.5rem 1rem}.f-contacts{gap:1.5rem}}
+@media(max-width:900px){.about-inner{grid-template-columns:1fr}.about-portrait-col{flex-direction:row;border-right:none;border-bottom:1px solid var(--border);padding:1.25rem 1.5rem}.about-deco{display:none}.section-ornament-inner{grid-template-columns:70px 1fr}.orn-deco{display:none}.form-row{grid-template-columns:1fr 1fr}.results-grid{grid-template-columns:1fr;text-align:center}.donut-wrap{margin:0 auto 1.5rem}.result-actions{justify-content:center}.proj-grid{grid-template-columns:1fr 1fr}.footer-main{grid-template-columns:1fr;gap:1.5rem}.f-orgs{flex-wrap:wrap;gap:1rem}.f-contacts{flex-wrap:wrap;gap:1.2rem}}
+@media(max-width:600px){.hero-poster{display:none}.hero-poster-v{display:block;width:100%;height:100vh;object-fit:cover;object-position:center top}.hero-overlay{padding:0 1rem 3rem}.btn-cta{width:100%;justify-content:center}.about-portrait-col{flex-direction:column;align-items:center;text-align:center}.about-content{padding:1.25rem 1rem}.section-ornament{padding:1rem}.section-ornament-inner{grid-template-columns:50px 1fr;gap:0.5rem}.orn-content{padding:0 0.75rem}.orn-icon{width:50px;height:50px;font-size:1.2rem}.form-row{grid-template-columns:1fr}.reg-header{flex-direction:column;align-items:flex-start;gap:0.4rem}.quiz-nav{gap:0.5rem}.btn-back{padding:0.6rem 1rem;font-size:0.8rem}.btn-next{padding:0.6rem 1.2rem;font-size:0.85rem}.results-grid{gap:1.5rem}.result-actions{flex-direction:column;align-items:stretch}.btn-share,.btn-restart{justify-content:center}.proj-grid{grid-template-columns:1fr}.footer-main{padding:1.5rem 1rem 1rem}.f-orgs{justify-content:flex-start;flex-wrap:wrap}.f-org{flex:0 0 auto}.f-org-name{max-width:80px;font-size:0.7rem}.f-contacts{flex-direction:column;align-items:flex-start;gap:1rem}.f-bottom-inner{flex-direction:column;gap:0.4rem}}
+@media(max-width:400px){.hero-title{font-size:2.6rem}.hero-sub{font-size:0.95rem}.hero-desc{font-size:0.85rem}.org-logo{width:44px;height:44px}.f-org-name{display:none}}
 </style>
 </head>
 <body>
@@ -514,8 +225,8 @@ footer{
     </div>
     <div class="about-content">
       <h2>Кто такой Н. Ф. Фёдоров?</h2>
-      <p>Николай Фёдорович Фёдоров — русский религиозный мыслитель, философ-космист, основатель учения об «Общем деле». Служил библиотекарем Румянцевского музея в Москве, никогда не публиковал своих работ при жизни, но оказал огромное влияние на Льва Толстого, Фёдора Достоевского, Константина Циолковского и многих других.</p>
-      <p>Главная идея Фёдорова: человечество должно объединиться ради победы над смертью и воскрешения всех умерших поколений. Наука, культура и техника — не самоцель, а инструмент этого «Общего дела».</p>
+      <p>Николай Фёдорович Фёдоров — выдающийся российский мыслитель, автор «Философии общего дела», родоначальник русского космизма. Знаменитый библиотекарь Румянцевского музея в Москве, философ памяти и воскрешения оказал огромное влияние на Льва Толстого и Федора Достоевского, Владимира Соловьёва и Николая Бердяева. Его мечту о выходе человечества в космос подхватил Константин Циолковский. Писатели, поэты, художники XX века вдохновлялись идеями философа-космиста.</p>
+      <p>«Философия общего дела» Н.Ф. Федорова стоит у истоков многих современных проектов по просвещению и сохранению памяти, социальной солидарности, развитию науки и продлению жизни.</p>
       <a href="http://nffedorov.ru/" target="_blank" class="link-gold">Подробнее о философии Фёдорова →</a>
     </div>
     <div class="about-deco">◈<br>◇<br>◈</div>
@@ -674,7 +385,6 @@ footer{
     </p>
   </div>
   <div class="proj-grid">
-
     <div class="proj-card">
       <div class="proj-icon">
         <svg viewBox="0 0 48 48" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -695,7 +405,6 @@ footer{
       <p>Ежегодная международная научная конференция о будущем человека и мироздания. 4–7 июня 2026 года.</p>
       <a href="http://nffedorov.ru/" target="_blank" class="btn-proj">Подробнее →</a>
     </div>
-
     <div class="proj-card">
       <div class="proj-icon">
         <svg viewBox="0 0 48 48" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -713,7 +422,6 @@ footer{
       <p>Конкурс эссе, научных и творческих работ для всех, кто мыслит о будущем человечества.</p>
       <a href="http://nffedorov.ru/" target="_blank" class="btn-proj">Подробнее →</a>
     </div>
-
     <div class="proj-card">
       <div class="proj-icon">
         <svg viewBox="0 0 48 48" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -733,7 +441,6 @@ footer{
       <p>Дискуссионная площадка о совместных действиях ради будущих поколений.</p>
       <a href="http://nffedorov.ru/" target="_blank" class="btn-proj">Подробнее →</a>
     </div>
-
   </div>
 </section>
 
@@ -741,7 +448,6 @@ footer{
 <footer>
   <img src="fut.jpg" alt="" class="footer-bg">
   <div class="footer-bg-overlay"></div>
-
   <div class="footer-main">
     <div class="footer-col">
       <h4>Организаторы</h4>
@@ -805,25 +511,86 @@ footer{
 
 <script>
 const Q=[
-  {q:"Что, на ваш взгляд, должно быть главной задачей развития человечества?",opts:["Повышение уровня жизни, комфорта, доходов и доступности благ.","Справедливое распределение ресурсов и снижение бедности, чтобы люди жили достойнее.","Борьба со страданием, болезнями, старением и преждевременной смертью как главными источниками человеческой бедности.","Преодоление смерти и возвращение жизни всем ушедшим поколениям, преображение человечества в братство, сознательно-творческое управление земными и космическими процессами."]},
-  {q:"Что делает веру, философию или мировоззрение по-настоящему живыми?",opts:["Они помогают человеку внутренне успокоиться и найти личный смысл.","Они учат нравственности, состраданию и уважению к другим людям.","Они должны вести людей к реальным делам заботы, памяти, просвещения и солидарности.","Они должны помочь человеку задаться вопросом: «Почему живущее страдает и умирает?», стать смысловой опорой Общего дела — совместного труда людей ради победы над смертью, забвением и разобщением."]},
-  {q:"Каким должно быть отношение человечества к природе?",opts:["Использовать природные ресурсы разумно, чтобы поддерживать развитие экономики.","Снижать вред для природы и жить экологичнее.","Научиться восстанавливать нарушенные природные процессы и предотвращать катастрофы.","Человечество как разумная, творческая сила природы должно перейти от эксплуатации ресурсов к регуляции природных процессов ради жизни живущих и воскрешения ушедших."]},
-  {q:"Какой прогресс вы считаете настоящим?",opts:["Тот, который даёт больше технологий, скорости, удобства и возможностей.","Тот, который делает общество гуманнее, справедливее и образованнее.","Тот, который уменьшает страдание, продлевает жизнь и помогает людям объединяться.","Тот, который ориентирует науку, технику, культуру на решение задачи преодоления смерти, восстановления утраченного и спасения всех поколений."]},
-  {q:"Как вы понимаете долг памяти перед умершими?",opts:["Нужно помнить близких, заботиться об их могилах, хранить фотографии и семейные истории.","Нужно сохранять культурную и историческую память народа, архивы, биографии, имена.","Память должна становиться делом: восстановлением судеб, заботой о наследии, передачей опыта будущим поколениям.","Память не может останавливаться на воспоминании: подлинный долг перед ушедшими — стремиться к их реальному возвращению к жизни."]},
-  {q:"Какая любовь кажется вам наиболее высокой?",opts:["Любовь как личное чувство, близость и счастье двух людей.","Любовь как забота, верность, семья и ответственность за близких.","Любовь как расширение родства: забота о живых, старших, младших, слабых, будущих поколениях.","Любовь как долг воскрешения и восстановления общечеловеческого родства: невозможность примириться с исчезновением дорогих нам людей, расширение любви на всех живших и живущих."]},
-  {q:"Как вы понимаете свободу человека?",opts:["Свобода — это право жить по-своему и самому выбирать свои цели.","Свобода должна сочетаться с ответственностью перед другими людьми.","Настоящая свобода раскрывается, когда люди добровольно объединяются ради больших общих задач.","Высшая свобода — добровольное сотрудничество людей в деле преодоления смерти и розни; управление природными процессами сделает человека подлинно свободным существом."]},
-  {q:"Какую роль должна играть наука в будущем человечества?",opts:["Наука должна объективно изучать мир и расширять знания.","Наука должна приносить пользу обществу: лечить, обучать, улучшать качество жизни.","Наука должна сознательно служить уменьшению страдания, продлению жизни и защите человека.","Наука должна стать орудием Общего дела — служением жизни, бессмертию и воскрешению всех ушедших поколений."]},
-  {q:"Какое отношение к старению и смерти вам ближе?",opts:["Старение и смерть — естественная часть жизни, с которой нужно примириться.","Нужно достойно сопровождать старость, облегчать страдания и уважать конец жизни.","Нужно активно бороться со старением, болезнями и преждевременной смертью научными средствами.","Человечество не должно признавать смерть нормой; преодоление смерти и возвращение жизни умершим должно стать центральной задачей истории."]},
-  {q:"Для чего в первую очередь нужно образование?",opts:["Чтобы человек получил профессию, доход и место в обществе.","Чтобы человек стал культурнее, свободнее и ответственнее.","Чтобы соединять людей разных поколений и профессий вокруг решения общих задач.","Чтобы все люди стали участниками Общего дела познания и преобразования мира ради жизни."]},
-  {q:"Что для вас означает освоение космоса?",opts:["Это научный и технологический вызов, престиж и развитие цивилизации.","Это расширение человеческого горизонта, вдохновение, исследование Вселенной.","Это часть долгосрочного будущего человечества, где наука, культура и ответственность выходят за пределы Земли.","Космос должен стать пространством Общего дела — будущим домом преображённого человечества и всех возвращённых поколений."]},
-  {q:"Какой общественный порядок кажется вам наиболее зрелым?",opts:["Такой, где каждый защищает свои интересы, права и свободы.","Такой, где государство и общество обеспечивают справедливые правила и защиту человека.","Такой, где люди, организации, наука, культура и государство объединяются вокруг долгосрочных задач развития.","Такой, где человечество взрослеет до Общего дела: сознательное родственное сотрудничество ради жизни, памяти и будущего."]}
+  {q:"Что, на ваш взгляд, должно быть главной задачей развития человечества?",opts:[
+    "Повышение уровня жизни, комфорта, доходов и доступности благ.",
+    "Справедливое распределение ресурсов и снижение бедности, чтобы люди жили достойнее.",
+    "Борьба со страданием, болезнями, старением и преждевременной смертью как главными источниками человеческой бедности.",
+    "Преодоление смерти и возвращение жизни всем ушедшим поколениям, преображение человечества в братство, сознательно-творческое управление земными и космическими процессами."
+  ]},
+  {q:"Что делает веру, философию или мировоззрение по-настоящему живыми?",opts:[
+    "Они помогают человеку внутренне успокоиться и найти личный смысл.",
+    "Они учат нравственности, состраданию и уважению к другим людям.",
+    "Они должны вести людей к реальным делам заботы, памяти, просвещения и солидарности.",
+    "Они должны помочь человеку задаться вопросом: «Почему живущее страдает и умирает?», стать смысловой опорой общего дела — совместного труда людей ради победы над смертью, забвением и разобщением."
+  ]},
+  {q:"Каким должно быть отношение человечества к природе?",opts:[
+    "Использовать природные ресурсы разумно, чтобы поддерживать развитие экономики.",
+    "Снижать вред для природы и жить экологичнее.",
+    "Научиться восстанавливать нарушенные природные процессы и предотвращать катастрофы.",
+    "Человечество как разумная, творческая сила природы, инстанция ее самосознания и самоуправления должно перейти от эксплуатации ресурсов земли к регуляции природных процессов ради жизни живущих и воскрешения ушедших."
+  ]},
+  {q:"Какой прогресс вы считаете настоящим?",opts:[
+    "Тот, который даёт больше технологий, скорости, удобства и возможностей.",
+    "Тот, который делает общество гуманнее, справедливее и образованнее.",
+    "Тот, который уменьшает страдание, продлевает жизнь и помогает людям объединяться.",
+    "Тот, который ориентирует науку, технику, культуру на решение задач регуляции природы, преодоления смерти, восстановления утраченного и спасения всех поколений."
+  ]},
+  {q:"Как вы понимаете долг памяти перед умершими?",opts:[
+    "Нужно помнить близких, заботиться об их могилах, хранить фотографии и семейные истории.",
+    "Нужно сохранять культурную и историческую память народа, архивы, биографии, имена.",
+    "Память должна становиться делом: восстановлением судеб, заботой о наследии, передачей опыта будущим поколениям.",
+    "Память не может останавливаться на воспоминании: подлинный долг перед ушедшими — стремиться к их реальному возвращению к жизни."
+  ]},
+  {q:"Какая любовь кажется вам наиболее высокой?",opts:[
+    "Любовь как личное чувство, близость и счастье двух людей.",
+    "Любовь как забота, верность, семья и ответственность за близких.",
+    "Любовь как расширение родства: забота о живых, старших, младших, слабых, будущих поколениях.",
+    "Любовь как долг воскрешения и восстановления общечеловеческого родства: невозможность примириться с исчезновением дорогих нам людей, расширение любви на всех живших и живущих, нет дальних – все наши ближние."
+  ]},
+  {q:"Как вы понимаете свободу человека?",opts:[
+    "Свобода — это право жить по-своему и самому выбирать свои цели.",
+    "Свобода должна сочетаться с ответственностью перед другими людьми.",
+    "Настоящая свобода раскрывается, когда люди добровольно объединяются ради больших общих задач.",
+    "Свобода без общего дела превращается в разобщение; высшая свобода — добровольное сотрудничество людей в деле преодоления смерти и розни; управление природными процессами сделает человека подлинно свободным существом."
+  ]},
+  {q:"Какую роль должна играть наука в будущем человечества?",opts:[
+    "Наука должна объективно изучать мир и расширять знания.",
+    "Наука должна приносить пользу обществу: лечить, обучать, улучшать качество жизни.",
+    "Наука должна сознательно служить уменьшению страдания, продлению жизни и защите человека.",
+    "Наука должна стать орудием общего дела — служением жизни, бессмертию и воскрешению всех ушедших поколений."
+  ]},
+  {q:"Какое отношение к старению и смерти вам ближе?",opts:[
+    "Старение и смерть — естественная часть жизни, с которой нужно примириться.",
+    "Нужно достойно сопровождать старость, облегчать страдания и уважать конец жизни.",
+    "Нужно активно бороться со старением, болезнями и преждевременной смертью научными средствами.",
+    "Человечество не должно признавать смерть нормой; преодоление смерти, возвращение жизни умершим – нравственный долг человека и центральная задача истории."
+  ]},
+  {q:"Для чего в первую очередь нужно образование?",opts:[
+    "Чтобы человек получил профессию, доход и место в обществе.",
+    "Чтобы человек стал культурнее, свободнее и ответственнее.",
+    "Чтобы соединять людей разных поколений и профессий вокруг решения общих задач.",
+    "Чтобы все люди стали участниками общего дела познания и преобразования мира ради жизни."
+  ]},
+  {q:"Что для вас означает освоение космоса?",opts:[
+    "Это научный и технологический вызов, престиж и развитие цивилизации.",
+    "Это расширение человеческого горизонта, вдохновение, исследование Вселенной.",
+    "Это часть долгосрочного будущего человечества, где наука, культура и ответственность выходят за пределы Земли.",
+    "Космос должен стать пространством общего дела — будущим домом преображённого человечества и всех возвращённых поколений."
+  ]},
+  {q:"Какой общественный порядок кажется вам наиболее зрелым?",opts:[
+    "Такой, где каждый защищает свои интересы, права и свободы.",
+    "Такой, где государство и общество обеспечивают справедливые правила и защиту человека.",
+    "Такой, где люди, организации, наука, культура и государство объединяются вокруг долгосрочных задач развития.",
+    "Такой, где человечество взрослеет до общего дела: сознательное родственное сотрудничество ради жизни, памяти и будущего."
+  ]}
 ];
+
 const CATS=[
-  {l:"Осторожный гуманист",min:0,max:9,d:`<p>Вы ставите в центр своих принципов <strong>достоинство человека, заботу, справедливость и улучшение качества жизни</strong> здесь и сейчас. Вам близка культура памяти и уважение к ушедшим, но вы, скорее всего, воспринимаете радикальные идеи космизма как метафору или далёкий горизонт.</p><p><strong>Ваш фокус:</strong> делать жизнь людей лучше в реальности, шаг за шагом. <strong>Ваше «да» Фёдорову:</strong> сострадание, культура, ответственность.</p>`},
-  {l:"Сочувствующий космизму",min:10,max:18,d:`<p>Вы <strong>разделяете главный нерв космизма</strong>: неравнодушие к теме смерти, смысла науки, долга памяти и будущего. Вам близка мысль, что мир можно и нужно преобразовывать, но вы сохраняете осторожность к самым радикальным выводам.</p><p><strong>Ваш фокус:</strong> ответственность, просвещение, солидарность, снижение страдания. <strong>Ваше «да» Фёдорову:</strong> наука и культура должны служить человеку.</p>`},
-  {l:"Практический космист",min:19,max:25,d:`<p>Вы воспринимаете космизм не только как философию, а как <strong>проектный принцип</strong>: объединяться ради больших задач — памяти, науки, образования, продления жизни, будущего. Вы готовы переводить идеи в действия.</p><p><strong>Ваш фокус:</strong> Общее дело как практика — «делать вместе». <strong>Ваше «да» Фёдорову:</strong> будущего не бывает без ответственности и совместного труда.</p>`},
-  {l:"Убеждённый космист",min:26,max:31,d:`<p>Вам близок космизм как <strong>мировоззрение</strong>: смерть — не просто «часть природы», а проблема, с которой разум и культура не должны мириться. Вы ясно видите необходимость объединения людей ради задач, превышающих частные интересы.</p><p><strong>Ваш фокус:</strong> наука, культура и общество как единый субъект будущего. <strong>Ваше ощущение:</strong> будущее — это задача, а не случайность.</p>`},
-  {l:"Космист-преобразователь",min:32,max:36,d:`<p>Ваши ответы максимально близки к радикальному горизонту Фёдорова: <strong>смерть не принимается как норма</strong>, память — призыв к восстановлению, наука — инструмент преодоления распада, а человечество — единый субъект Общего дела.</p><p><strong>Ваш фокус:</strong> жизнь, бессмертие, воскрешение как нравственная задача. <strong>«Невозможное»</strong> — не мечта, а направление труда.</p>`}
+  {l:"Осторожный гуманист",min:0,max:9,d:`<p>Вы ставите в центр своих принципов <strong>достоинство человека, заботу, справедливость и улучшение качества жизни</strong> здесь и сейчас. Вам близка культура памяти и уважение к ушедшим, но вы, скорее всего, воспринимаете радикальные идеи космизма как метафору или далёкий горизонт.</p><p><strong>Ваш фокус:</strong> делать жизнь людей лучше в реальности, шаг за шагом. <strong>Ваше «да» Фёдорову:</strong> сострадание, культура, ответственность. <strong>Ваша дистанция:</strong> к предельной задаче преодоления смерти как общей программе.</p>`},
+  {l:"Сочувствующий космизму",min:10,max:18,d:`<p>Вы <strong>разделяете главный нерв космизма</strong>: неравнодушие к теме смерти, смысла науки, долга памяти и будущего. Вам близка мысль, что мир можно и нужно преобразовывать, но вы сохраняете осторожность к самым радикальным выводам.</p><p><strong>Ваш фокус:</strong> ответственность, просвещение, солидарность, снижение страдания. <strong>Ваше «да» Фёдорову:</strong> наука и культура должны служить человеку. <strong>Ваша дистанция:</strong> осторожное отношение к идее воскрешения и абсолютной «центральности» борьбы со смертью.</p>`},
+  {l:"Практический космист",min:19,max:25,d:`<p>Вы воспринимаете космизм не только как философию, но и как <strong>проектный принцип</strong>: объединяться ради больших задач — памяти, науки, образования, продления жизни, будущего. Вы готовы переводить идеи в действия: в инициативы, сообщества, культурные и технологические решения.</p><p><strong>Ваш фокус:</strong> Общее дело как практика — «делать вместе». <strong>Ваше «да» Фёдорову:</strong> будущего не бывает без ответственности и совместного труда. <strong>Ваша дистанция:</strong> может оставаться довольно большой по отношению к максимально радикальным трактовкам философа.</p>`},
+  {l:"Убеждённый космист",min:26,max:31,d:`<p>Вам близок космизм как <strong>мировоззрение</strong>: смерть — не просто «часть природы», а проблема, с которой разум и культура не должны мириться; наука едина с этикой, а память деятельна. Вы ясно видите необходимость объединения людей ради задач, превышающих частные интересы.</p><p><strong>Ваш фокус:</strong> наука, культура и общество как единый субъект будущего. <strong>Ваше «да» Фёдорову:</strong> человек обязан расти до масштаба общей ответственности. <strong>Ваше ощущение:</strong> будущее — это задача, а не случайность.</p>`},
+  {l:"Космист-преобразователь",min:32,max:36,d:`<p>Ваши ответы максимально близки к радикальному горизонту Фёдорова: <strong>смерть не принимается как норма</strong>, память понимается как призыв к восстановлению, наука — как инструмент преодоления распада, а человечество — как единый субъект общего дела. Вы мыслите предельно: не «улучшить условия», а изменить саму судьбу человека, поднять его над слепой природной необходимостью.</p><p><strong>Ваш фокус:</strong> жизнь, бессмертие, воскрешение, управление природными и космическими процессами как нравственная задача, вселенское братство людей во имя будущего. <strong>Ваше «да» Фёдорову:</strong> «невозможное» — не мечта, а цель и ориентир деятельности. <strong>Ваша позиция:</strong> максимально деятельная и предельная по масштабу.</p>`}
 ];
 
 let cur=0,ans=new Array(12).fill(-1);
@@ -894,33 +661,13 @@ function showResults(){
   const city = document.getElementById('city')?.value.trim();
   const contact = document.getElementById('contact')?.value.trim();
   const isAnonymous = !name;
-
-  const answers = ans.map((answerIndex, qIndex) => ({
-    qIndex,
-    answerIndex,
-    score: answerIndex >= 0 ? answerIndex : 0
-  }));
+  const answers = ans.map((answerIndex, qIndex) => ({qIndex, answerIndex, score: answerIndex >= 0 ? answerIndex : 0}));
 
   fetch('https://script.google.com/macros/s/AKfycbwnJSupIoMsvLKKWRjzIJ25ZzE45wIrSUa2FEe1AkidmfedxWXsI4g2QjEVz8tVxQk3jw/exec', {
-    method: 'POST',
-    mode: 'no-cors',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify({
-      name: name || null,
-      isAnonymous,
-      city: city || null,
-      email: contact || null,
-      cosmicIndex: pct,
-      profileTitle: cat.l,
-      answers
-    })
+    method: 'POST', mode: 'no-cors', headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify({name: name || null, isAnonymous, city: city || null, email: contact || null, cosmicIndex: pct, profileTitle: cat.l, answers})
   })
-  .then(r => r.json())
-  .then(data => {
-    if (data.resultId) {
-      console.log('✅ Результат сохранён, ID:', data.resultId);
-    }
-  })
+  .then(r => { console.log('✅ Отправка завершена'); })
   .catch(err => console.warn('Не удалось сохранить результат:', err));
 }
 
